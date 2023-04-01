@@ -16,12 +16,10 @@ public class Titlecard : BaseScreen
 
     private void Awake()
     {
-        PlayerController.OnStartDevice += PlayerController_OnStartDevice;
-
         playButton.onClick.AddListener(Play);
     }
 
-    private void PlayerController_OnStartDevice(PlayerController sender)
+    public void StartDevice()
     {
         if (!validate1)
         {
@@ -32,6 +30,8 @@ public class Titlecard : BaseScreen
         {
             validate2 = true;
             imageValidatePlayer2.color = Color.green;
+
+            playButton.Select();
         }
     }
 

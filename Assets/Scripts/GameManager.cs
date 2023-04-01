@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 	[Header("Objects")]
 	[SerializeField] private GameObject gameContainer = default;
 	[SerializeField] private Titlecard titlecard = default;
+    [SerializeField] private ScienceScreen scienceScreen = default;
 
     [SerializeField] private Vortex vortex;
 
@@ -22,21 +23,51 @@ public class GameManager : MonoBehaviour
 	{
 		Instance = this;
 
-		Vortex.colisionVortex += Vortex_colisionVortex;
+        Vortex.OncollisionVortex += Vortex_OncollisionVortex;
         PlayerMovement.OnCollisionVortex += PlayerMovement_OnCollisionVortex;
 
         titlecard.Onplay += Titlecard_Onplay;
+        scienceScreen.OnClick += ScienceScreen_OnClick;
 	}
+
+    
     #endregion
 
-    #region events
+    #region Events
     private void PlayerMovement_OnCollisionVortex(PlayerMovement sender)
 	{
 		//Gameover plutôt
 		Retry();
 	}
 
+	private void Vortex_OncollisionVortex(Vortex sender, Vortex receiver)
+	{
+		Debug.Log(createVortex);
+
+		createVortex = !createVortex;
+
+		if (createVortex)
+		{
+			int chargerSender = sender.charge;
+			int chargeReceiver = receiver.charge;
+
+			Vector3 middle = (sender.transform.position + receiver.transform.position) / 2;
+
+			Destroy(sender.gameObject);
+			Destroy(receiver.gameObject);
+
+			Instantiate(vortex, middle, sender.transform.rotation).charge = chargeReceiver + chargerSender;
+
+			Debug.Log("Instantiate");
+		}
+	}
+
 	private void Titlecard_Onplay(BaseScreen sender)
+	{
+		scienceScreen.gameObject.SetActive(true);
+	}
+
+	private void ScienceScreen_OnClick(BaseScreen sender)
 	{
 		gameContainer.SetActive(true);
 	}
@@ -65,33 +96,9 @@ public class GameManager : MonoBehaviour
     }
 	#endregion
 
-	#region Vortexs
-	private void Vortex_colisionVortex(Vortex sender, Vortex receiver)
-    {
-		Debug.Log(createVortex);
-
-		createVortex = !createVortex;
-
-        if (createVortex)
-        {
-			int chargerSender = sender.charge;
-			int chargeReceiver = receiver.charge;
-
-            Vector3 middle = (sender.transform.position + receiver.transform.position)/ 2;
-
-			Destroy(sender.gameObject);
-			Destroy(receiver.gameObject);
-
-			Instantiate(vortex, middle, sender.transform.rotation).charge = chargeReceiver + chargerSender;
-
-			Debug.Log("Instantiate");
-		}
-    }
-	#endregion
-
 	private void OnDestroy()
 	{
-		Vortex.colisionVortex -= Vortex_colisionVortex;
+		Vortex.OncollisionVortex -= Vortex_OncollisionVortex;
 		PlayerMovement.OnCollisionVortex -= PlayerMovement_OnCollisionVortex;
 	}
 }
