@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
 
 	protected Vector3 velocity = Vector3.zero;
 
-	private Action DoAction;
+	protected Action DoAction;
 
 	#region Unity Methods
 	protected virtual void Start()
