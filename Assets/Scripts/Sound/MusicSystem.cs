@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicSystem : MonoBehaviour
@@ -7,10 +5,9 @@ public class MusicSystem : MonoBehaviour
     private FMOD.Studio.EventInstance musicMain;
     public static MusicSystem Instance;
     
-
-    void Start()
+    private void Start()
     {
-        if (Instance != null && Instance != this)
+        if (Instance && Instance != this)
         {
             Destroy(gameObject);
             return;
@@ -27,10 +24,7 @@ public class MusicSystem : MonoBehaviour
         musicMain = FMODUnity.RuntimeManager.CreateInstance("event:/MUSIC/sound_music_main");
         
         if (!IsPlaying(musicMain))
-        {
-            Debug.Log("a");
             musicMain.start();
-        }
     }
 
     public void StopMusic()
