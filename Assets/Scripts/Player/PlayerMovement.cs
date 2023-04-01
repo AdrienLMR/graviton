@@ -24,6 +24,7 @@ public class PlayerMovement : Movement
 	#region State Machine
 	public void SetModeDie()
 	{
+		FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_death_a1");
 		OnCollisionVortex?.Invoke(this);
 		DoAction = DoActionDie;
 	}

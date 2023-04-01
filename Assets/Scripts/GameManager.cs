@@ -6,8 +6,6 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; private set; } = default;
 
-	[SerializeField]private MusicSystem musicSystem; 
-
 	[Header("Objects")]
 	[SerializeField] private GameObject gameContainer = default;
 	[SerializeField] private GameObject titlecard = default;
@@ -36,9 +34,7 @@ public class GameManager : MonoBehaviour
 	private void Retry()
     {
 		if (loadScene)
-        {
-			Debug.Log("StopMusic");
-            musicSystem.StopMusic();
+        {           
             SceneManager.LoadScene(0);
 			loadScene = false;
         }
