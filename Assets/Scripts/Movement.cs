@@ -84,5 +84,8 @@ public class Movement : MonoBehaviour
 	protected void UpdatePosition()
 	{
 		transform.position += velocity;
+
+		if (velocity != Vector3.zero)
+			transform.rotation = Quaternion.LookRotation(Vector3.forward, velocity);
 	}
 }

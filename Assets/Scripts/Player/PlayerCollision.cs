@@ -1,29 +1,30 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
 public class PlayerCollision : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer collisionSprite = default;
+
+    [SerializeField] private Color unTriggeredColor = default;
+    [SerializeField] private Color triggeredColor = default;
+
+    [SerializeField] private float pushForce = 0f;
+
     #region Unity Methods
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        //Trigger(collision);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Trigger(collision);
-    }
-    #endregion
-
-    private void Trigger(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            //if (PlayerInput.GetAxis(push) == 1)
-            //    Debug.Log("push");
+            collisionSprite.color = triggeredColor;
+
+            //if (button attack)
+            //collision.gameObject.GetComponent<Movement>().SetModePushed(transform.parent.forward * pushForce);
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        collisionSprite.color = unTriggeredColor;
+    }
+    #endregion
 }

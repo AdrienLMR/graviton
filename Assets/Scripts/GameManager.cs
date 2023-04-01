@@ -9,11 +9,12 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; private set; } = default;
 
-    [Header("Objects")]
+	[Header("Objects")]
+	[SerializeField] private GameObject gameContainer = default;
+	[SerializeField] private GameObject titlecard = default;
+
     [SerializeField] private Vortex vortex;
 	private Vortex actualVortex = default;
-
-	[SerializeField] private GameObject playerInput = default;
 
 	private bool createVortex = false;
 
@@ -21,13 +22,34 @@ public class GameManager : MonoBehaviour
 	private void Awake()
 	{
 		Instance = this;
+		Vortex.colisionVortex += Vortex_colisionVortex;
+	}
+	#endregion
+
+	#region Screens
+	public void Play()
+	{
+		gameContainer.SetActive(true);
+		titlecard.SetActive(false);
 	}
 
-	private void Start()
-	{
-        Vortex.colisionVortex += Vortex_colisionVortex;
+	public void Restart()
+    {
+
     }
 
+	public void Pause()
+    {
+
+    }
+
+	public void Resume()
+    {
+
+    }
+    #endregion
+
+    #region Vortexs
     private void Vortex_colisionVortex(Vortex sender, Vortex receiver)
     {
 		createVortex = !createVortex;
