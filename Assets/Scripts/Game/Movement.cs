@@ -13,9 +13,9 @@ public class Movement : MonoBehaviour
 
 	protected Action DoAction;
 
-	#region Unity Methods
-	protected virtual void Start()
-	{
+    #region Unity Methods
+    private void Awake()
+    {
 		SetModeVoid();
 	}
 
@@ -43,8 +43,8 @@ public class Movement : MonoBehaviour
 
 	public void SetModePushed(Vector3 velocity)
     {
-		DoAction = DoActionPushed;
 		this.velocity = velocity;
+		DoAction = DoActionPushed;
 	}
 
 	protected virtual void DoActionVoid() { }
@@ -64,7 +64,9 @@ public class Movement : MonoBehaviour
 		UpdatePosition();
 
 		if (velocity.magnitude <= 0.01f)
+		{
 			SetModeMove();
+		}
     }
 	#endregion
 

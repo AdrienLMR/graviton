@@ -5,6 +5,7 @@ public class PlayerAttack : MonoBehaviour
 {
 	[SerializeField] private GameObject vortex = default;
 
+	[SerializeField] private float forcePushVortex = 0f;
 	[SerializeField] private float distanceToSpawn = 4f;
 	[SerializeField] private float coolDown = 0f;
 	[SerializeField] private Animator animator;
@@ -24,6 +25,7 @@ public class PlayerAttack : MonoBehaviour
 
 			Vortex _vortex = CreateVortex();
 			_vortex.charge = 1;
+			_vortex.SetModePushed(transform.up * forcePushVortex);
 
 			animator.SetBool("AttackRight", true);
 		}
@@ -35,12 +37,10 @@ public class PlayerAttack : MonoBehaviour
 
 			Vortex _vortex = CreateVortex();
 			_vortex.charge = -1;
+			_vortex.SetModePushed(transform.up * forcePushVortex);
 
 			animator.SetBool("AttackLeft", true);
 		}
-
-		//animator.SetBool("AttackRight", false);
-		//animator.SetBool("AttackLeft", false);
 	}
 
 	private Vortex CreateVortex()
