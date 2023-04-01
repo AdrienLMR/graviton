@@ -28,9 +28,13 @@ public class PlayerController : MonoBehaviour
 		playerMovement.movementInput = ctx.ReadValue<Vector2>();
 	}
 
-	public void AddVortex(InputAction.CallbackContext ctx)
+	public void OnAddVortex(InputAction.CallbackContext ctx)
 	{
-		playerMovement.inputAddVortex = ctx.ReadValue<float>();
+		playerMovement.gameObject.GetComponent<PlayerAttack>().inputAddVortex = ctx.ReadValue<float>();
     }
 
+	public void OnPush(InputAction.CallbackContext ctx)
+    {
+		playerMovement.gameObject.GetComponentInChildren<PlayerCollision>().Push();
+    }
 }
