@@ -165,7 +165,7 @@
                 {
                     "name": "negative",
                     "id": "886d95f6-6513-4dd4-bc12-df73d1735ac6",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -176,7 +176,7 @@
                 {
                     "name": "positive",
                     "id": "4785ca5e-9685-4eb3-ac1f-76fcac126eeb",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
