@@ -12,6 +12,7 @@ public class PlayerMovement : Movement
 	public Vector2 movementInput { private get; set; }
 
 	public static event PlayerMovementDelegate OnCollisionVortex;
+	private Animator animator;
 
 	#region Unity Methods
 	protected override void Start()

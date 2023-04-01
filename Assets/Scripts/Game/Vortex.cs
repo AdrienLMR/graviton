@@ -4,7 +4,7 @@ using UnityEngine;
 
 public delegate void OnCollisionVortex(Vortex sender, Vortex receiver);
 
-public class Vortex : MonoBehaviour
+public class Vortex : Movement
 {
     public static event OnCollisionVortex colisionVortex;
 
@@ -16,8 +16,12 @@ public class Vortex : MonoBehaviour
 
     private SpriteRenderer spriteRender = default;
 
-    private void Start()
+    override protected void Start()
     {
+        base.Start();
+
+        arena = GameObject.Find("Arena").transform;
+
         spriteRender = GetComponent<SpriteRenderer>();
 
         if (charge == 0)
@@ -54,5 +58,10 @@ public class Vortex : MonoBehaviour
         {
            collision.GetComponent<PlayerMovement>().SetModeDie();
         }
+    }
+
+    protected override void DoActionMove()
+    {
+        
     }
 }

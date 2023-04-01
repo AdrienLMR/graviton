@@ -24,8 +24,8 @@ public class PlayerAttack : MonoBehaviour
 
 			Vector3 positionSpawn = transform.position + transform.up * distanceToSpawn;
 
-			Instantiate(vortex, positionSpawn, Quaternion.identity).GetComponent<Vortex>().charge = 1;
-
+			Vortex _vortex = Instantiate(vortex, positionSpawn, Quaternion.identity).GetComponent<Vortex>();
+			_vortex.charge = 1;
 		}
 		else if (inputAddVortex < 0 && elapsedTime >= coolDown)
 		{
@@ -33,7 +33,8 @@ public class PlayerAttack : MonoBehaviour
 
 			Vector3 positionSpawn = transform.position + transform.up * distanceToSpawn;
 
-			Instantiate(vortex, positionSpawn, Quaternion.identity).GetComponent<Vortex>().charge = -1;
+			Vortex _vortex = Instantiate(vortex, positionSpawn, Quaternion.identity).GetComponent<Vortex>();
+			_vortex.charge = -1;
 		}
 	}
 }
