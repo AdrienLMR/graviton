@@ -78,7 +78,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8304787568122755132}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: AddVortex
+        m_MethodName: OnAddVortex
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -90,6 +90,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c8272baf-7826-4593-9990-2a5d41318b6f
     m_ActionName: Gameplay/AddVortex
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8304787568122755132}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPush
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a8cc20ec-5035-49a9-9aa5-bb496ae472ee
+    m_ActionName: Gameplay/Push[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay

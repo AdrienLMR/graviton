@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 [DisallowMultipleComponent]
@@ -23,18 +19,14 @@ public class GameManager : MonoBehaviour
 	#region Unity Methods
 	private void Awake()
 	{
+		Vortex.colisionVortex += Vortex_colisionVortex;
+        PlayerMovement.OnCollisionVortex += PlayerMovement_OnCollisionVortex;
 		Instance = this;
 	}
-	
-	private void Start()
-	{
-        Vortex.colisionVortex += Vortex_colisionVortex;
-        PlayerMovement.colisionVortex += PlayerMovement_colisionVortex;
-    }
-	#endregion
+    #endregion
 
-	#region Screens
-	public void Play()
+    #region Screens
+    public void Play()
 	{
 		gameContainer.SetActive(true);
 		titlecard.SetActive(false);
@@ -58,10 +50,10 @@ public class GameManager : MonoBehaviour
     {
 
     }
-    #endregion
+	#endregion
 
-    #region Vortexs
-    private void Vortex_colisionVortex(Vortex sender, Vortex receiver)
+	#region Vortexs
+	private void Vortex_colisionVortex(Vortex sender, Vortex receiver)
     {
 		Debug.Log(createVortex);
 
@@ -79,12 +71,13 @@ public class GameManager : MonoBehaviour
 
 			Instantiate(vortex, middle, sender.transform.rotation).charge = chargeReceiver + chargerSender;
 
-			Debug.Log("Insatantiate");
+			Debug.Log("Instantiate");
 		}
     }
-    
-    private void PlayerMovement_colisionVortex(PlayerMovement sender)
-    {
+
+	private void PlayerMovement_OnCollisionVortex(PlayerMovement sender)
+	{
+		//Gameover plutôt
 		Retry();
 	}
 	#endregion
@@ -92,6 +85,6 @@ public class GameManager : MonoBehaviour
 	private void OnDestroy()
 	{
 		Vortex.colisionVortex -= Vortex_colisionVortex;
-		PlayerMovement.colisionVortex -= PlayerMovement_colisionVortex;
+		PlayerMovement.OnCollisionVortex -= PlayerMovement_OnCollisionVortex;
 	}
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColisionVortexPlayer : MonoBehaviour
+public class CollisionVortexPlayer : MonoBehaviour
 {
     [SerializeField] private string _tag = "Player";
 
