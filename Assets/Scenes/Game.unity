@@ -587,6 +587,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 53923834}
     - target: {fileID: 3181795465824559109, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181795465824559109, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
       propertyPath: playerIndex
       value: 0
       objectReference: {fileID: 0}
@@ -654,6 +658,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4301538770041907824, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
+      propertyPath: pushForce
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4461287596870259194, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -686,6 +694,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8793676854447143133, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
+      propertyPath: m_Size.x
+      value: 2.2575672
+      objectReference: {fileID: 0}
+    - target: {fileID: 8793676854447143133, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.006539464
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7156182025262458500, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
@@ -714,6 +730,10 @@ PrefabInstance:
       propertyPath: arena
       value: 
       objectReference: {fileID: 53923834}
+    - target: {fileID: 3181795465824559109, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3181795465824559109, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
       propertyPath: playerIndex
       value: 1
@@ -785,6 +805,14 @@ PrefabInstance:
     - target: {fileID: 4301538770041907824, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
       propertyPath: pushForce
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745842452748881095, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8822032
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745842452748881095, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.058898374
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5745309257627587359, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}

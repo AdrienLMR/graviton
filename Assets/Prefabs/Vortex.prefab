@@ -100,9 +100,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.01, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4329729
 --- !u!50 &3839633439406639159
 Rigidbody2D:
   serializedVersion: 4
@@ -136,6 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6ba2b3282e2b74d89debc391519a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arena: {fileID: 0}
+  friction: 0.98
   charge: 1
   tagCollision: Vortex
   explosion: {fileID: 3366864688189825251, guid: 9bcccb6577e197f478f48a5190258997, type: 3}
