@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{a22989ff-2fda-4b8a-a421-88e08d055dd3}">
+		<property name="name">
+			<value>distanceFromVortex</value>
+		</property>
+		<relationship name="folder">
+			<destination>{31d0c100-67bf-4b37-9880-95e388114718}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{d7bae130-48ae-41f5-abd0-a5af3ec157c5}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{d7bae130-48ae-41f5-abd0-a5af3ec157c5}">
+		<property name="maximum">
+			<value>10</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
