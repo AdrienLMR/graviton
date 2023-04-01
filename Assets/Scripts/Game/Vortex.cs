@@ -22,8 +22,6 @@ public class Vortex : Movement
 
     protected void Start()
     {
-        SetModeVoid();
-
         arena = GameObject.Find("Arena").transform;
 
         spriteRender = GetComponent<SpriteRenderer>();
