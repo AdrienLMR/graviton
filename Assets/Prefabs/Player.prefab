@@ -103,8 +103,9 @@ MonoBehaviour:
   arena: {fileID: 0}
   friction: 0.98
   speed: 3
-  horizontalInput: 0
-  verticalInput: 0
+  distanceToSpawn: 4
+  coolDown: 0.5
+  vortex: {fileID: 3839633439406640075, guid: 037c9376818c0be439d83326dfb4672a, type: 3}
   playerIndex: 0
 --- !u!114 &2043401355572131618
 MonoBehaviour:
@@ -118,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81a012351e35754b9a85163957c5c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  push: 0
 --- !u!58 &8750478511880906926
 CircleCollider2D:
   m_ObjectHideFlags: 0

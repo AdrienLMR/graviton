@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
 
     private void Vortex_colisionVortex(Vortex sender, Vortex receiver)
     {
+		Debug.Log(createVortex);
+
 		createVortex = !createVortex;
 
         if (createVortex)
@@ -56,10 +58,12 @@ public class GameManager : MonoBehaviour
 
             Vector3 middle = (sender.transform.position + receiver.transform.position)/ 2;
 
-			Instantiate(vortex, middle, sender.transform.rotation).charge = chargeReceiver + chargerSender;
-
 			Destroy(sender.gameObject);
 			Destroy(receiver.gameObject);
+
+			Instantiate(vortex, middle, sender.transform.rotation).charge = chargeReceiver + chargerSender;
+
+			Debug.Log("Insatantiate");
 		}
     }
 	#endregion

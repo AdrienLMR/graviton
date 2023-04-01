@@ -44,8 +44,10 @@ public class Vortex : MonoBehaviour
     {
         GameObject _object = collision.gameObject;
 
-        if (collision.CompareTag(tagCollision))
+        if (_object.CompareTag(tagCollision))
         {
+            Debug.Log(_object.gameObject);
+
             Vortex vortexReceiver = _object.GetComponent<Vortex>();
             colisionVortex?.Invoke(this, vortexReceiver);
         }

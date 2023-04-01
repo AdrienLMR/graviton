@@ -27,4 +27,10 @@ public class PlayerController : MonoBehaviour
 	{
 		playerMovement.movementInput = ctx.ReadValue<Vector2>();
 	}
+
+	public void AddVortex(InputAction.CallbackContext ctx)
+	{
+		playerMovement.inputAddVortex = ctx.ReadValue<float>();
+    }
+
 }
