@@ -12,6 +12,7 @@ public class PlayerMovement : Movement
 
 	public int playerIndex = 0;
 	public Vector2 movementInput { private get; set; }
+	public Vector2 rotateInput { private get; set; }
 
 	public static event PlayerMovementDelegate OnCollisionVortex;
 	[SerializeField] private Animator animator;
@@ -55,4 +56,11 @@ public class PlayerMovement : Movement
 
     }
     #endregion
+
+    protected override void UpdatePosition()
+    {
+        base.UpdatePosition();
+
+		transform.rotation = Quaternion.LookRotation(Vector3.forward, rotateInput);
+    }
 }
