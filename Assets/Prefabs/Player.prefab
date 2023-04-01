@@ -52,7 +52,9 @@ MonoBehaviour:
   arena: {fileID: 0}
   friction: 0.98
   speed: 3
+  boolAnimator: Run
   playerIndex: 0
+  animator: {fileID: 6427051758547506378}
 --- !u!114 &2168818091339528962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +70,7 @@ MonoBehaviour:
   vortex: {fileID: 3839633439406640075, guid: 037c9376818c0be439d83326dfb4672a, type: 3}
   distanceToSpawn: 1.25
   coolDown: 0.2
+  animator: {fileID: 6427051758547506378}
 --- !u!50 &7676583363826601604
 Rigidbody2D:
   serializedVersion: 4
