@@ -42,7 +42,7 @@ public class PlayerPush : MonoBehaviour
 
         for (int i = 0; i < collisions.Count; i++)
         {
-            velocity = (collisions[i].transform.position - transform.parent.position) * pushForce;
+            velocity = (collisions[i].transform.position - transform.parent.position).normalized * pushForce;
 
             collisions[i].gameObject.GetComponent<Movement>().SetModePushed(velocity);
         }

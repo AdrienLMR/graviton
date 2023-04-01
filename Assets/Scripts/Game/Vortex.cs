@@ -16,9 +16,9 @@ public class Vortex : Movement
 
     private SpriteRenderer spriteRender = default;
 
-    override protected void Start()
+    protected void Start()
     {
-        base.Start();
+        SetModeVoid();
 
         arena = GameObject.Find("Arena").transform;
 
