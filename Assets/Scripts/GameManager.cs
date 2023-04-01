@@ -30,8 +30,6 @@ public class GameManager : MonoBehaviour
         scienceScreen.OnClick += ScienceScreen_OnClick;
         pauseScreen.OnClick += PauseScreen_OnClick;
 	}
-
-    
     #endregion
 
     #region Events
