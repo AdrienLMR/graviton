@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public delegate void PlayerControllerEventHandler(PlayerController sender);
-
 [DisallowMultipleComponent]
 public class PlayerController : MonoBehaviour
 {
@@ -10,11 +8,9 @@ public class PlayerController : MonoBehaviour
 
 	private PlayerMovement playerMovement = default;
 
-	public static event PlayerControllerEventHandler OnStartDevice;
-
     private void Awake()
     {
-		var players = FindObjectsOfType<PlayerMovement>();
+		PlayerMovement[] players = FindObjectsOfType<PlayerMovement>(true);
 		int index = playerInput.playerIndex;
 
         for (int i = 0; i < players.Length; i++)
@@ -29,22 +25,19 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext ctx)
 	{
-		playerMovement.movementInput = ctx.ReadValue<Vector2>();
+		if (playerMovement != null)
+			playerMovement.movementInput = ctx.ReadValue<Vector2>();
 	}
 
 	public void OnAddVortex(InputAction.CallbackContext ctx)
 	{
-		playerMovement.gameObject.GetComponent<PlayerAttack>().inputAddVortex = ctx.ReadValue<float>();
+		if (playerMovement != null)
+			playerMovement.gameObject.GetComponent<PlayerAttack>().inputAddVortex = ctx.ReadValue<float>();
     }
 
 	public void OnPush(InputAction.CallbackContext ctx)
     {
-		playerMovement.gameObject.GetComponentInChildren<PlayerPush>().Push();
-    }
-
-	public void StartDevice()
-    {
-		Debug.Log("Start Device");
-		OnStartDevice?.Invoke(this);
+		if (playerMovement != null)
+			playerMovement.gameObject.GetComponentInChildren<PlayerPush>().Push();
     }
 }
