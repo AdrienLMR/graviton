@@ -80,12 +80,9 @@ public class Movement : MonoBehaviour
 	}
 	#endregion
 
-	protected void UpdatePosition()
+	protected virtual void UpdatePosition()
 	{
 		transform.position += velocity;
-
-		if (velocity != Vector3.zero)
-			transform.rotation = Quaternion.LookRotation(Vector3.forward, velocity);
 	}
 
     private void OnDestroy()

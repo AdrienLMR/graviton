@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
 			playerMovement.movementInput = ctx.ReadValue<Vector2>();
 	}
 
+	public void OnRotate(InputAction.CallbackContext ctx)
+    {
+		if (playerMovement != null)
+			playerMovement.rotateInput = ctx.ReadValue<Vector2>();
+    }
+
 	public void OnAddVortex(InputAction.CallbackContext ctx)
 	{
 		if (playerMovement != null)

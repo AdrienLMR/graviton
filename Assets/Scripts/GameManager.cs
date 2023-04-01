@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 			Destroy(sender.gameObject);
 			Destroy(receiver.gameObject);
 
-			Instantiate(vortex, middle, sender.transform.rotation).charge = chargeReceiver + chargerSender;
+			Instantiate(vortex, middle, sender.transform.rotation, gameContainer.transform).charge = chargeReceiver + chargerSender;
 
 			Debug.Log("Instantiate");
 		}
