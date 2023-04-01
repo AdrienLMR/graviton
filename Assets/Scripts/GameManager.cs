@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
     {
 		if (loadScene)
         {
-			Debug.log("StopMusic");
-			musicSystem.StopMusic();
+			Debug.Log("StopMusic");
+			//musicSystem.StopMusic();
 			SceneManager.LoadScene(0);
 			loadScene = false;
         }

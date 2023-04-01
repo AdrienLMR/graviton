@@ -65,7 +65,7 @@ public class Movement : MonoBehaviour
 
 		UpdatePosition();
 
-		if (velocity == Vector3.zero)
+		if (velocity.magnitude <= 0.01f)
 			SetModeMove();
     }
 	#endregion

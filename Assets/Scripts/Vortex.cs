@@ -59,4 +59,9 @@ public class Vortex : Movement
            collision.GetComponent<PlayerMovement>().SetModeDie();
         }
     }
+
+    protected override void DoActionMove()
+    {
+        
+    }
 }
