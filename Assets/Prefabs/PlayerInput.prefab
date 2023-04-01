@@ -106,6 +106,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a8cc20ec-5035-49a9-9aa5-bb496ae472ee
     m_ActionName: Gameplay/Push[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8304787568122755132}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 72f6f035-3138-4d4f-ac13-3b2798bfa094
+    m_ActionName: Gameplay/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay

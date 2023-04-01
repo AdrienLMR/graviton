@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
 
 	[Header("Objects")]
 	[SerializeField] private GameObject gameContainer = default;
-	[SerializeField] private GameObject titlecard = default;
+	[SerializeField] private Titlecard titlecard = default;
+    [SerializeField] private ScienceScreen scienceScreen = default;
+    [SerializeField] private PauseScreen pauseScreen = default;
 
     [SerializeField] private Vortex vortex;
 
@@ -18,52 +20,39 @@ public class GameManager : MonoBehaviour
 	#region Unity Methods
 	private void Awake()
 	{
-		Vortex.colisionVortex += Vortex_colisionVortex;
-        PlayerMovement.OnCollisionVortex += PlayerMovement_OnCollisionVortex;
 		Instance = this;
+
+        Vortex.OncollisionVortex += Vortex_OncollisionVortex;
+        PlayerMovement.OnCollisionVortex += PlayerMovement_OnCollisionVortex;
+        PlayerController.OnPauseGame += PlayerController_OnPauseGame;
+
+        titlecard.Onplay += Titlecard_Onplay;
+        scienceScreen.OnClick += ScienceScreen_OnClick;
+        pauseScreen.OnClick += PauseScreen_OnClick;
 	}
+
+    
     #endregion
 
-    #region Screens
-    public void Play()
+    #region Events
+    private void PlayerMovement_OnCollisionVortex(PlayerMovement sender)
 	{
-		gameContainer.SetActive(true);
-		titlecard.SetActive(false);
+		//Gameover plutï¿½t
+		Retry();
 	}
 
-	private void Retry()
-    {
-		if (loadScene)
-        {           
-            SceneManager.LoadScene(0);
-			loadScene = false;
-        }
-    }
-
-	public void Pause()
-    {
-
-    }
-
-	public void Resume()
-    {
-
-    }
-	#endregion
-
-	#region Vortexs
-	private void Vortex_colisionVortex(Vortex sender, Vortex receiver)
-    {
+	private void Vortex_OncollisionVortex(Vortex sender, Vortex receiver)
+	{
 		Debug.Log(createVortex);
 
 		createVortex = !createVortex;
 
-        if (createVortex)
-        {
+		if (createVortex)
+		{
 			int chargerSender = sender.charge;
 			int chargeReceiver = receiver.charge;
 
-            Vector3 middle = (sender.transform.position + receiver.transform.position)/ 2;
+			Vector3 middle = (sender.transform.position + receiver.transform.position) / 2;
 
 			Destroy(sender.gameObject);
 			Destroy(receiver.gameObject);
@@ -72,18 +61,48 @@ public class GameManager : MonoBehaviour
 
 			Debug.Log("Instantiate");
 		}
-    }
-
-	private void PlayerMovement_OnCollisionVortex(PlayerMovement sender)
-	{
-		//Gameover plutôt
-		Retry();
 	}
+
+	private void Titlecard_Onplay(BaseScreen sender)
+	{
+		scienceScreen.gameObject.SetActive(true);
+	}
+
+	private void ScienceScreen_OnClick(BaseScreen sender)
+	{
+		gameContainer.SetActive(true);
+	}
+
+	private void PlayerController_OnPauseGame(PlayerController sender)
+	{
+		pauseScreen.gameObject.SetActive(true);
+		gameContainer.SetActive(false);
+		Time.timeScale = 0;
+	}
+
+	private void PauseScreen_OnClick(BaseScreen sender)
+	{
+		gameContainer.SetActive(true);
+		Time.timeScale = 1;
+	}
+	#endregion
+
+	#region Screens
+	private void Retry()
+    {
+		if (loadScene)
+        {
+			Debug.Log("StopMusic");
+            //musicSystem.StopMusic();
+            SceneManager.LoadScene(0);
+			loadScene = false;
+        }
+    }
 	#endregion
 
 	private void OnDestroy()
 	{
-		Vortex.colisionVortex -= Vortex_colisionVortex;
+		Vortex.OncollisionVortex -= Vortex_OncollisionVortex;
 		PlayerMovement.OnCollisionVortex -= PlayerMovement_OnCollisionVortex;
 	}
 }

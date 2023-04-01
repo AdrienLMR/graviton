@@ -8,11 +8,13 @@ public class PlayerMovement : Movement
     [Header("Player Values")]
 	[SerializeField] private float speed = 0f;
 
+	[SerializeField] private string boolAnimator = "Run";
+
 	public int playerIndex = 0;
 	public Vector2 movementInput { private get; set; }
 
 	public static event PlayerMovementDelegate OnCollisionVortex;
-	private Animator animator;
+	[SerializeField] private Animator animator;
 
 	#region Unity Methods
 	protected override void Start()
@@ -35,6 +37,15 @@ public class PlayerMovement : Movement
 
 		if (CheckExceedLimitMap(transform.position - arena.position))
 			SlideAgainstWall(transform.position - arena.position);
+
+		if (movementInput.magnitude == 0f)
+        {
+			animator.SetBool(boolAnimator, false);
+        }
+        else
+        {
+			animator.SetBool(boolAnimator, true);
+        }
 
 		UpdatePosition();
 	}
