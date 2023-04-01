@@ -26,6 +26,8 @@ public class Vortex : Movement
 
         if (charge == 0)
         {
+            //lancement du son d'explosion
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_vortex_explosion");
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
             return;
