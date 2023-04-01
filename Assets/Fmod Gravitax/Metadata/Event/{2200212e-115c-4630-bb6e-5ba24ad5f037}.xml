@@ -8,7 +8,7 @@
 			<value>sound_music_main</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{77012a0d-cf1a-445b-8e43-c700217fc9cc}</destination>
@@ -26,7 +26,8 @@
 			<destination>{98c5a306-e4de-45cb-aa56-5b03ed61a268}</destination>
 		</relationship>
 		<relationship name="markerTracks">
-			<destination>{bc9d3c2c-9c69-4519-91e5-eafe491b8605}</destination>
+			<destination>{8ae73618-92b6-4001-a508-f0bcbf37808e}</destination>
+			<destination>{acea35ac-63d6-430d-96ff-200e479abe29}</destination>
 		</relationship>
 		<relationship name="groupTracks">
 			<destination>{fcfb33d1-80e6-4bb9-a6e7-e3cc4368abe1}</destination>
@@ -60,13 +61,25 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{98c5a306-e4de-45cb-aa56-5b03ed61a268}" />
-	<object class="MarkerTrack" id="{bc9d3c2c-9c69-4519-91e5-eafe491b8605}" />
+	<object class="MarkerTrack" id="{8ae73618-92b6-4001-a508-f0bcbf37808e}" />
+	<object class="MarkerTrack" id="{acea35ac-63d6-430d-96ff-200e479abe29}" />
 	<object class="GroupTrack" id="{fcfb33d1-80e6-4bb9-a6e7-e3cc4368abe1}">
+		<relationship name="modules">
+			<destination>{fe6e220e-d098-4f88-acac-3fe0e697188d}</destination>
+		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{ff25997e-24a4-418f-8158-f83edda5facf}</destination>
 		</relationship>
 	</object>
-	<object class="Timeline" id="{40503842-d007-4fc9-9c38-7814e75d4bec}" />
+	<object class="Timeline" id="{40503842-d007-4fc9-9c38-7814e75d4bec}">
+		<relationship name="modules">
+			<destination>{fe6e220e-d098-4f88-acac-3fe0e697188d}</destination>
+		</relationship>
+		<relationship name="markers">
+			<destination>{dc298ca1-3492-4ffb-8ea0-5f06494aba50}</destination>
+			<destination>{17bc6afc-95e8-41ba-8450-229c57e04ac3}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerMaster" id="{13f023d8-1272-4736-b600-6a9f07b4385a}">
 		<relationship name="effectChain">
 			<destination>{95a87b69-0e84-47ce-9f32-67c9497195e6}</destination>
@@ -84,6 +97,17 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f11f035a-404a-4c26-ac70-dd975c686e43}" />
+	<object class="SingleSound" id="{fe6e220e-d098-4f88-acac-3fe0e697188d}">
+		<property name="length">
+			<value>46.630000000000003</value>
+		</property>
+		<property name="timelockedOffset">
+			<value>0.050000000000000003</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{5ca18638-1eb9-41eb-984e-bd20263bdba3}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerGroup" id="{ff25997e-24a4-418f-8158-f83edda5facf}">
 		<property name="name">
 			<value>Audio 1</value>
@@ -96,6 +120,40 @@
 		</relationship>
 		<relationship name="output">
 			<destination>{13f023d8-1272-4736-b600-6a9f07b4385a}</destination>
+		</relationship>
+	</object>
+	<object class="TempoMarker" id="{dc298ca1-3492-4ffb-8ea0-5f06494aba50}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="tempo">
+			<value>130</value>
+		</property>
+		<property name="timeSignatureNumerator">
+			<value>5</value>
+		</property>
+		<property name="timeSignatureDenominator">
+			<value>8</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{40503842-d007-4fc9-9c38-7814e75d4bec}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{8ae73618-92b6-4001-a508-f0bcbf37808e}</destination>
+		</relationship>
+	</object>
+	<object class="LoopRegion" id="{17bc6afc-95e8-41ba-8450-229c57e04ac3}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="length">
+			<value>46.630000000000003</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{40503842-d007-4fc9-9c38-7814e75d4bec}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{acea35ac-63d6-430d-96ff-200e479abe29}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{95a87b69-0e84-47ce-9f32-67c9497195e6}">
