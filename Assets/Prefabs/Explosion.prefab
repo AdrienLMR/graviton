@@ -102,7 +102,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.5
 --- !u!50 &1792648358886641814
 Rigidbody2D:
   serializedVersion: 4
@@ -136,4 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7846a62a69298924e85124d64ba13703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tag: Arena
+  tagColision: Player
+  speed: 2
+  stayOnStage: 0.2

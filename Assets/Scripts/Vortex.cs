@@ -50,6 +50,9 @@ public class Vortex : MonoBehaviour
 
             Vortex vortexReceiver = _object.GetComponent<Vortex>();
             colisionVortex?.Invoke(this, vortexReceiver);
+        }else if (_object.CompareTag("Player"))
+        {
+           collision.GetComponent<PlayerMovement>().SetModeDie();
         }
     }
 }
