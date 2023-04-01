@@ -20,6 +20,7 @@ public class PlayerAttack : MonoBehaviour
 
 		if (inputAddVortex > 0 && elapsedTime >= coolDown)
 		{
+			FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_vortex_positive");
 			elapsedTime = 0f;
 
 			Vector3 positionSpawn = transform.position + transform.up * distanceToSpawn;
@@ -29,6 +30,7 @@ public class PlayerAttack : MonoBehaviour
 		}
 		else if (inputAddVortex < 0 && elapsedTime >= coolDown)
 		{
+			FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_vortex_negative");
 			elapsedTime = 0f;
 
 			Vector3 positionSpawn = transform.position + transform.up * distanceToSpawn;

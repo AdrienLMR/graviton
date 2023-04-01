@@ -11,7 +11,7 @@ public class MusicSystem : MonoBehaviour
     void Start()
     {
         musicMain = FMODUnity.RuntimeManager.CreateInstance("event:/MUSIC/sound_music_main");
-
+        PlayMusic();
     }
 
     public void PlayMusic()

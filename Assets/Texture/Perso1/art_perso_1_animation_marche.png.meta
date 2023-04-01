@@ -265,12 +265,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      art_perso_1_animation_marche_1: -1972432190
-      art_perso_1_animation_marche_5: 1501658855
       art_perso_1_animation_marche_0: -378670145
-      art_perso_1_animation_marche_4: -86569640
+      art_perso_1_animation_marche_1: -1972432190
       art_perso_1_animation_marche_2: 1180524413
       art_perso_1_animation_marche_3: -1302565989
+      art_perso_1_animation_marche_4: -86569640
+      art_perso_1_animation_marche_5: 1501658855
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
