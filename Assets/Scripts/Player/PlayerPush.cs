@@ -4,6 +4,9 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class PlayerPush : MonoBehaviour
 {
+    private const string PlayerTag = "Player";
+    private const string VortexTag = "Vortex";
+
     [SerializeField] private SpriteRenderer collisionSprite = default;
 
     [SerializeField] private Color unTriggeredColor = default;
@@ -16,7 +19,7 @@ public class PlayerPush : MonoBehaviour
     #region Unity Methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == PlayerTag || collision.tag == VortexTag)
         {
             collisionSprite.color = triggeredColor;
             collisions.Add(collision);
@@ -25,8 +28,11 @@ public class PlayerPush : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collisionSprite.color = unTriggeredColor;
-        collisions.Remove(collision);
+        if (collision.tag == PlayerTag || collision.tag == VortexTag)
+        {
+            collisionSprite.color = unTriggeredColor;
+            collisions.Remove(collision);
+        }
     }
     #endregion
 
