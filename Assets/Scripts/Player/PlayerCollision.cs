@@ -6,11 +6,6 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class PlayerCollision : MonoBehaviour
 {
-    //[Header("Objects")]
-
-    [Header("Values")]
-    [SerializeField] private PlayerInputs push = default;
-
     #region Unity Methods
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -27,8 +22,8 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if (PlayerInput.GetAxis(push) == 1)
-                Debug.Log("push");
+            //if (PlayerInput.GetAxis(push) == 1)
+            //    Debug.Log("push");
         }
     }
 }

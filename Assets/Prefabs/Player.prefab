@@ -105,9 +105,7 @@ MonoBehaviour:
   speed: 3
   horizontalInput: 0
   verticalInput: 0
-  coolDownVortex: 0.5
-  vortex: {fileID: 3839633439406640075, guid: 037c9376818c0be439d83326dfb4672a, type: 3}
-  distanceAddVortex: 4
+  playerIndex: 0
 --- !u!114 &2043401355572131618
 MonoBehaviour:
   m_ObjectHideFlags: 0
