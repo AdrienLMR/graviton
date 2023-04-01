@@ -28,10 +28,10 @@ public class PlayerMovement : Movement
 
 		UpdatePosition();
 	}
-    #endregion
+	#endregion
 
-    #region velocity inputs
-    private void SetVelocityInput()
+	#region velocity inputs
+	private void SetVelocityInput()
     {
         velocity = speed * Time.deltaTime * new Vector3(PlayerInput.GetAxis(horizontalInput), PlayerInput.GetAxis(verticalInput)).normalized;
     }
