@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
 	private void Awake()
 	{
 		Instance = this;
-		Vortex.colisionVortex += Vortex_colisionVortex;
 	}
 	
 	private void Start()
