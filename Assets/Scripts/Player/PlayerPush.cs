@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class PlayerCollision : MonoBehaviour
+public class PlayerPush : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer collisionSprite = default;
 
@@ -11,7 +11,7 @@ public class PlayerCollision : MonoBehaviour
 
     [SerializeField] private float pushForce = 0f;
 
-    [SerializeField] private List<Collider2D> collisions = default;
+    private List<Collider2D> collisions = new List<Collider2D>();
 
     #region Unity Methods
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,9 +32,13 @@ public class PlayerCollision : MonoBehaviour
 
     public void Push()
     {
+        Vector2 velocity;
+
         for (int i = 0; i < collisions.Count; i++)
         {
-            collisions[i].gameObject.GetComponent<Movement>().SetModePushed(transform.parent.forward * pushForce);
+            velocity = (collisions[i].transform.position - transform.parent.position) * pushForce;
+
+            collisions[i].gameObject.GetComponent<Movement>().SetModePushed(velocity);
         }
     }
 }

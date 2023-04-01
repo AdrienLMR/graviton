@@ -35,6 +35,6 @@ public class PlayerController : MonoBehaviour
 
 	public void OnPush(InputAction.CallbackContext ctx)
     {
-		playerMovement.gameObject.GetComponentInChildren<PlayerCollision>().Push();
+		playerMovement.gameObject.GetComponentInChildren<PlayerPush>().Push();
     }
 }

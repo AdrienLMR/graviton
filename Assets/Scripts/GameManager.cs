@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private GameObject titlecard = default;
 
     [SerializeField] private Vortex vortex;
-	private Vortex actualVortex = default;
 
 	private bool createVortex = false;
 	private bool loadScene = true;
