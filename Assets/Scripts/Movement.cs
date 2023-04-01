@@ -54,9 +54,15 @@ public class Movement : MonoBehaviour
 	
 	protected virtual void DoActionPushed()
     {
-		velocity -= Vector3.one * friction;
+		velocity *= friction;
+
+		if (CheckExceedLimitMap(transform.position - arena.position))
+			SlideAgainstWall(transform.position - arena.position);
 
 		UpdatePosition();
+
+		if (velocity == Vector3.zero)
+			SetModeMove();
     }
 	#endregion
 
