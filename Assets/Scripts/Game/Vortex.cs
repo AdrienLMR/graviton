@@ -35,10 +35,12 @@ public class Vortex : Movement
 
         if (charge > 0)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_vortex_augment");
             spriteRender.color = colorPositive; 
         }
         else if (charge < 0)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_vortex_reduce");
             spriteRender.color = colorNegative;
         }
 
