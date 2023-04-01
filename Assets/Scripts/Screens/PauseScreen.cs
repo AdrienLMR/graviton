@@ -7,7 +7,7 @@ public class PauseScreen : BaseScreen
 
     private void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Escape))
         {
             gameObject.SetActive(false);
             OnClick?.Invoke(this);

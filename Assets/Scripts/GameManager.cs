@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -36,7 +37,13 @@ public class GameManager : MonoBehaviour
     private void PlayerMovement_OnCollisionVortex(PlayerMovement sender)
 	{
 		//Gameover plut�t
-		Retry();
+		if (loadScene)
+		{
+			Debug.Log("StopMusic");
+			//musicSystem.StopMusic();
+			SceneManager.LoadScene(0);
+			loadScene = false;
+		}
 	}
 
 	private void Vortex_OncollisionVortex(Vortex sender, Vortex receiver)
@@ -83,19 +90,6 @@ public class GameManager : MonoBehaviour
 		gameContainer.SetActive(true);
 		Time.timeScale = 1;
 	}
-	#endregion
-
-	#region Screens
-	private void Retry()
-    {
-		if (loadScene)
-        {
-			Debug.Log("StopMusic");
-            //musicSystem.StopMusic();
-            SceneManager.LoadScene(0);
-			loadScene = false;
-        }
-    }
 	#endregion
 
 	private void OnDestroy()
