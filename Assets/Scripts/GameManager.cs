@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [DisallowMultipleComponent]
 public class GameManager : MonoBehaviour
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private GameObject playerInput = default;
 
 	private bool createVortex = false;
+	private bool loadScene = true;
 
 	#region Unity Methods
 	private void Awake()
@@ -26,6 +28,21 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
         Vortex.colisionVortex += Vortex_colisionVortex;
+        PlayerMovement.colisionVortex += PlayerMovement_colisionVortex;
+    }
+
+    private void PlayerMovement_colisionVortex(PlayerMovement sender)
+    {
+		Retry();
+	}
+
+	private void Retry()
+    {
+		if (loadScene)
+        {
+			SceneManager.LoadScene(0);
+			loadScene = false;
+        }
     }
 
     private void Vortex_colisionVortex(Vortex sender, Vortex receiver)
@@ -47,8 +64,9 @@ public class GameManager : MonoBehaviour
     }
 	#endregion
 
-	public void CollisionVortex(Vortex vortex)
-    {
-		
-    }
+	private void OnDestroy()
+	{
+		Vortex.colisionVortex -= Vortex_colisionVortex;
+		PlayerMovement.colisionVortex -= PlayerMovement_colisionVortex;
+	}
 }

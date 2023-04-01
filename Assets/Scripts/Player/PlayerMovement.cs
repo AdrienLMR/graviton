@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public delegate void PlayerMovementDelegate(PlayerMovement sender);
+
 [DisallowMultipleComponent]
 public class PlayerMovement : Movement
 {
@@ -13,6 +15,8 @@ public class PlayerMovement : Movement
 	public int playerIndex = 0;
 
 	public Vector2 movementInput { private get; set; }
+
+	public static event PlayerMovementDelegate colisionVortex;
 
 	#region Unity Methods
 	protected override void Start()
@@ -31,5 +35,16 @@ public class PlayerMovement : Movement
 
 		UpdatePosition();
 	}
+
+	public void SetModeDie()
+    {
+		colisionVortex?.Invoke(this);
+		DoAction = DoActionDie;
+    }
+
+	public void DoActionDie()
+    {
+
+    }
 	#endregion
 }

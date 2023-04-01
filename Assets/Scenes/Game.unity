@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186fddb92d673184cbbcf08cef0140d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vortex: {fileID: 0}
-  playerInput: {fileID: 8304787568122755128, guid: f04cb6d0e5d10a84c98704cb561bb900, type: 3}
+  vortex: {fileID: 3839633439406639158, guid: 037c9376818c0be439d83326dfb4672a, type: 3}
+  playerInput: {fileID: 0}
 --- !u!4 &247351014
 Transform:
   m_ObjectHideFlags: 0
