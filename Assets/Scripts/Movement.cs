@@ -6,7 +6,7 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class Movement : MonoBehaviour
 {
-	[SerializeField] protected Transform arena = default;
+	[SerializeField] public Transform arena = default;
 
 	[Header("Movement Values")]
 	[SerializeField] protected float friction = 0.98f;
@@ -87,4 +87,9 @@ public class Movement : MonoBehaviour
 		if (velocity != Vector3.zero)
 			transform.rotation = Quaternion.LookRotation(Vector3.forward, velocity);
 	}
+
+    private void OnDestroy()
+    {
+		SetModeVoid();
+    }
 }
