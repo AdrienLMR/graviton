@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
 		if (loadScene)
         {
 			Debug.Log("StopMusic");
-			//musicSystem.StopMusic();
-			SceneManager.LoadScene(0);
+            //musicSystem.StopMusic();
+            SceneManager.LoadScene(0);
 			loadScene = false;
         }
     }
