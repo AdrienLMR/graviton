@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
 	[Header("Objects")]
 	[SerializeField] private GameObject gameContainer = default;
-	[SerializeField] private GameObject titlecard = default;
+	[SerializeField] private Titlecard titlecard = default;
 
     [SerializeField] private Vortex vortex;
 
@@ -18,19 +18,29 @@ public class GameManager : MonoBehaviour
 	#region Unity Methods
 	private void Awake()
 	{
+		Instance = this;
+
 		Vortex.colisionVortex += Vortex_colisionVortex;
         PlayerMovement.OnCollisionVortex += PlayerMovement_OnCollisionVortex;
-		Instance = this;
+
+        titlecard.Onplay += Titlecard_Onplay;
 	}
     #endregion
 
-    #region Screens
-    public void Play()
+    #region events
+    private void PlayerMovement_OnCollisionVortex(PlayerMovement sender)
 	{
-		gameContainer.SetActive(true);
-		titlecard.SetActive(false);
+		//Gameover plutôt
+		Retry();
 	}
 
+	private void Titlecard_Onplay(BaseScreen sender)
+	{
+		gameContainer.SetActive(true);
+	}
+	#endregion
+
+	#region Screens
 	private void Retry()
     {
 		if (loadScene)
@@ -73,12 +83,6 @@ public class GameManager : MonoBehaviour
 			Debug.Log("Instantiate");
 		}
     }
-
-	private void PlayerMovement_OnCollisionVortex(PlayerMovement sender)
-	{
-		//Gameover plutôt
-		Retry();
-	}
 	#endregion
 
 	private void OnDestroy()
