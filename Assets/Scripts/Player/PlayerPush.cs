@@ -21,7 +21,7 @@ public class PlayerPush : MonoBehaviour
     {
         if (collision.tag == PlayerTag || collision.tag == VortexTag)
         {
-            collisionSprite.color = triggeredColor;
+            //collisionSprite.color = triggeredColor;
             collisions.Add(collision);
         }
     }
@@ -30,7 +30,7 @@ public class PlayerPush : MonoBehaviour
     {
         if (collision.tag == PlayerTag || collision.tag == VortexTag)
         {
-            collisionSprite.color = unTriggeredColor;
+            //collisionSprite.color = unTriggeredColor;
             collisions.Remove(collision);
         }
     }
