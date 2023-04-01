@@ -6,7 +6,7 @@ public delegate void OnCollisionVortex(Vortex sender, Vortex receiver);
 
 public class Vortex : Movement
 {
-    public static event OnCollisionVortex colisionVortex;
+    public static event OnCollisionVortex OncollisionVortex;
 
     [SerializeField] public int charge = 1;
     [SerializeField] private string tagCollision = "Vortex";
@@ -53,7 +53,7 @@ public class Vortex : Movement
             Debug.Log(_object.gameObject);
 
             Vortex vortexReceiver = _object.GetComponent<Vortex>();
-            colisionVortex?.Invoke(this, vortexReceiver);
+            OncollisionVortex?.Invoke(this, vortexReceiver);
         }else if (_object.CompareTag("Player"))
         {
            collision.GetComponent<PlayerMovement>().SetModeDie();

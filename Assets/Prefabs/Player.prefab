@@ -52,7 +52,9 @@ MonoBehaviour:
   arena: {fileID: 0}
   friction: 0.98
   speed: 3
+  boolAnimator: Run
   playerIndex: 0
+  animator: {fileID: 6427051758547506378}
 --- !u!114 &2168818091339528962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +70,7 @@ MonoBehaviour:
   vortex: {fileID: 3839633439406640075, guid: 037c9376818c0be439d83326dfb4672a, type: 3}
   distanceToSpawn: 1.25
   coolDown: 0.2
+  animator: {fileID: 6427051758547506378}
 --- !u!50 &7676583363826601604
 Rigidbody2D:
   serializedVersion: 4
@@ -126,6 +129,7 @@ GameObject:
   - component: {fileID: 7994026067729515788}
   - component: {fileID: 4461287596870259194}
   - component: {fileID: 6427051758547506378}
+  - component: {fileID: 5870805148883814052}
   m_Layer: 0
   m_Name: Asset
   m_TagString: Untagged
@@ -220,6 +224,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5870805148883814052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4104789756276221420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3d18c219d06104cac697dc38dd9046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatorPlayer: {fileID: 6427051758547506378}
 --- !u!1 &5160057596700363694
 GameObject:
   m_ObjectHideFlags: 0
