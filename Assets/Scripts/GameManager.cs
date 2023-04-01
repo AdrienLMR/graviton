@@ -55,9 +55,38 @@ public class GameManager : MonoBehaviour
 			Destroy(sender.gameObject);
 			Destroy(receiver.gameObject);
 
-			Instantiate(vortex, middle, sender.transform.rotation, gameContainer.transform).charge = chargeReceiver + chargerSender;
+			int charge = chargeReceiver + chargerSender;
 
-			Debug.Log("Instantiate");
+			int maxCharge = 0;
+			int absChargeReceiver = Mathf.Abs(chargeReceiver);
+			int absChargerSender = Mathf.Abs(chargerSender);
+			int absCharge = Mathf.Abs(charge);
+
+			if (absChargeReceiver > absChargerSender)
+			{
+				maxCharge = absChargeReceiver;
+			}
+			else if (absChargeReceiver <= absChargerSender)
+			{
+				maxCharge = absChargerSender;
+			}
+
+			if (absCharge > maxCharge && charge != 0)
+			{
+				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_vortex_augment");
+				Debug.Log("augment");
+			}
+			else if (absCharge <= maxCharge && charge != 0)
+			{
+				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_vortex_reduce");
+				Debug.Log("reduce");
+			}
+
+			Instantiate(vortex, middle, sender.transform.rotation, gameContainer.transform).charge = charge;
+
+
+
+
 		}
 	}
 
@@ -90,8 +119,6 @@ public class GameManager : MonoBehaviour
     {
 		if (loadScene)
         {
-			Debug.Log("StopMusic");
-            //musicSystem.StopMusic();
             SceneManager.LoadScene(0);
 			loadScene = false;
         }

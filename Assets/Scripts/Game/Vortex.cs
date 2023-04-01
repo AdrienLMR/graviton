@@ -35,17 +35,17 @@ public class Vortex : Movement
 
         if (charge > 0)
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_vortex_augment");
             spriteRender.color = colorPositive; 
         }
         else if (charge < 0)
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_vortex_reduce");
             spriteRender.color = colorNegative;
         }
 
         float absoluteCharge = Mathf.Abs(charge);
         transform.localScale = Vector3.one * absoluteCharge;
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,6 +55,9 @@ public class Vortex : Movement
         if (_object.CompareTag(tagCollision))
         {
             Debug.Log(_object.gameObject);
+
+            
+            
 
             Vortex vortexReceiver = _object.GetComponent<Vortex>();
             OncollisionVortex?.Invoke(this, vortexReceiver);

@@ -100,9 +100,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{29c8bc76-40c4-471c-a764-d956c4089bd4}">
-		<property name="volume">
-			<value>-9</value>
-		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -128,8 +125,6 @@
 		<relationship name="effects">
 			<destination>{6e74d192-a3d9-4b27-be14-deffd14f3282}</destination>
 			<destination>{f206946f-735b-42d8-8d0d-d1177097e55d}</destination>
-			<destination>{9d296b26-78da-4373-bb6b-2af44babe556}</destination>
-			<destination>{b99aac58-5b1e-4cae-ac67-879c2c53e57a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{bba13b0d-beda-41cf-946b-16789f23aee7}" />
@@ -137,18 +132,4 @@
 	<object class="SpatialiserEffect" id="{0f0872f3-7928-496c-ac64-1a7dac6707aa}" />
 	<object class="SFXReverbEffect" id="{6e74d192-a3d9-4b27-be14-deffd14f3282}" />
 	<object class="MixerBusFader" id="{f206946f-735b-42d8-8d0d-d1177097e55d}" />
-	<object class="DistortionEffect" id="{9d296b26-78da-4373-bb6b-2af44babe556}" />
-	<object class="PannerEffect" id="{b99aac58-5b1e-4cae-ac67-879c2c53e57a}">
-		<property name="stereoPan">
-			<value>100</value>
-		</property>
-		<relationship name="modulators">
-			<destination>{55630a7a-6056-44d4-a02e-f46754a9959a}</destination>
-		</relationship>
-	</object>
-	<object class="RandomizerModulator" id="{55630a7a-6056-44d4-a02e-f46754a9959a}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>stereoPan</value>
-		</property>
-	</object>
 </objects>

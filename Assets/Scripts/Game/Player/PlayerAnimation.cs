@@ -15,4 +15,11 @@ public class PlayerAnimation : MonoBehaviour
     {
         animatorPlayer.SetBool("AttackRight", false);
     }
+
+    public void FootstepSound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_fsteps_a1");
+    }
+
+
 }
