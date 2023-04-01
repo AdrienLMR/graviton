@@ -22,7 +22,6 @@ public class Vortex : MonoBehaviour
 
         if (charge == 0)
         {
-            Debug.Log("Explosition");
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
             return;
@@ -37,15 +36,18 @@ public class Vortex : MonoBehaviour
             spriteRender.color = colorNegative;
         }
 
-        transform.localScale = Vector3.one * Mathf.Abs(charge);
+        float absoluteCharge = Mathf.Abs(charge);
+        transform.localScale = Vector3.one * absoluteCharge;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject _object = collision.gameObject;
 
-        if (collision.CompareTag(tagCollision))
+        if (_object.CompareTag(tagCollision))
         {
+            Debug.Log(_object.gameObject);
+
             Vortex vortexReceiver = _object.GetComponent<Vortex>();
             colisionVortex?.Invoke(this, vortexReceiver);
         }

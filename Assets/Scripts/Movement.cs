@@ -11,10 +11,9 @@ public class Movement : MonoBehaviour
 	[Header("Movement Values")]
 	[SerializeField] protected float friction = 0.98f;
 
-
 	protected Vector3 velocity = Vector3.zero;
 
-	private Action DoAction;
+	protected Action DoAction;
 
 	#region Unity Methods
 	protected virtual void Start()

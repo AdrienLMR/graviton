@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [DisallowMultipleComponent]
 public class GameManager : MonoBehaviour
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
 	private Vortex actualVortex = default;
 
 	private bool createVortex = false;
+	private bool loadScene = true;
 
 	#region Unity Methods
 	private void Awake()
@@ -24,6 +26,12 @@ public class GameManager : MonoBehaviour
 		Instance = this;
 		Vortex.colisionVortex += Vortex_colisionVortex;
 	}
+	
+	private void Start()
+	{
+        Vortex.colisionVortex += Vortex_colisionVortex;
+        PlayerMovement.colisionVortex += PlayerMovement_colisionVortex;
+    }
 	#endregion
 
 	#region Screens
@@ -33,9 +41,13 @@ public class GameManager : MonoBehaviour
 		titlecard.SetActive(false);
 	}
 
-	public void Restart()
+	private void Retry()
     {
-
+		if (loadScene)
+        {
+			SceneManager.LoadScene(0);
+			loadScene = false;
+        }
     }
 
 	public void Pause()
@@ -52,6 +64,8 @@ public class GameManager : MonoBehaviour
     #region Vortexs
     private void Vortex_colisionVortex(Vortex sender, Vortex receiver)
     {
+		Debug.Log(createVortex);
+
 		createVortex = !createVortex;
 
         if (createVortex)
@@ -61,16 +75,24 @@ public class GameManager : MonoBehaviour
 
             Vector3 middle = (sender.transform.position + receiver.transform.position)/ 2;
 
-			Instantiate(vortex, middle, sender.transform.rotation).charge = chargeReceiver + chargerSender;
-
 			Destroy(sender.gameObject);
 			Destroy(receiver.gameObject);
+
+			Instantiate(vortex, middle, sender.transform.rotation).charge = chargeReceiver + chargerSender;
+
+			Debug.Log("Insatantiate");
 		}
     }
+    
+    private void PlayerMovement_colisionVortex(PlayerMovement sender)
+    {
+		Retry();
+	}
 	#endregion
 
-	public void CollisionVortex(Vortex vortex)
-    {
-		
-    }
+	private void OnDestroy()
+	{
+		Vortex.colisionVortex -= Vortex_colisionVortex;
+		PlayerMovement.colisionVortex -= PlayerMovement_colisionVortex;
+	}
 }
