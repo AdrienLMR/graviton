@@ -2,20 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [DisallowMultipleComponent]
 public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; private set; } = default;
 
+    [Header("Objects")]
+    [SerializeField] private Vortex vortex;
 	private Vortex actualVortex = default;
-	[SerializeField] private Vortex vortex;
 
-    //[Header("Objects")]
-
-    //[Header("Values")]
-
-    private Action DoAction;
+	[SerializeField] private GameObject playerInput = default;
 
 	private bool createVortex = false;
 
@@ -28,7 +26,7 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
         Vortex.colisionVortex += Vortex_colisionVortex;
-	}
+    }
 
     private void Vortex_colisionVortex(Vortex sender, Vortex receiver)
     {
@@ -47,47 +45,10 @@ public class GameManager : MonoBehaviour
 			Destroy(receiver.gameObject);
 		}
     }
-
-    public void Init()
-	{
-
-	}
-
-	private void Update()
-	{
-
-	}
-
-	public void GameLoop()
-	{
-
-	}
 	#endregion
 
-	#region State Machine		
-	public void SetModeVoid()
-	{
-		DoAction = DoActionVoid;
-	}
-
-	public void SetModePlay()
-	{
-		DoAction = DoActionPlay;
-	}
-
-	private void DoActionVoid() { }
-
-	private void DoActionPlay()
-	{
-
-	}
-
-	#endregion
 	public void CollisionVortex(Vortex vortex)
     {
 		
     }
-
-	#region Events
-	#endregion
 }

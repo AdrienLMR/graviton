@@ -2,14 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [DisallowMultipleComponent]
 public class PlayerMovement : Movement
 {
     [Header("Player Values")]
 	[SerializeField] private float speed = 0f;
-	[SerializeField] private PlayerInputs horizontalInput = PlayerInputs.Nothing;
-	[SerializeField] private PlayerInputs verticalInput = PlayerInputs.Nothing;
+
+	public int playerIndex = 0;
+
+	public Vector2 movementInput { private get; set; }
 
 	#region Unity Methods
 	protected override void Start()
@@ -21,7 +24,7 @@ public class PlayerMovement : Movement
     #region State Machine
     protected override void DoActionMove()
 	{
-		SetVelocityInput();
+		velocity = speed * Time.deltaTime * movementInput;
 
 		if (CheckExceedLimitMap(transform.position - arena.position))
 			SlideAgainstWall(transform.position - arena.position);
@@ -29,11 +32,4 @@ public class PlayerMovement : Movement
 		UpdatePosition();
 	}
 	#endregion
-
-	#region velocity inputs
-	private void SetVelocityInput()
-    {
-        velocity = speed * Time.deltaTime * new Vector3(PlayerInput.GetAxis(horizontalInput), PlayerInput.GetAxis(verticalInput)).normalized;
-    }
-    #endregion
 }

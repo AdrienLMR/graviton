@@ -6,11 +6,11 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class Movement : MonoBehaviour
 {
-	[Header("Movement Objects")]
 	[SerializeField] protected Transform arena = default;
 
 	[Header("Movement Values")]
 	[SerializeField] protected float friction = 0.98f;
+
 
 	protected Vector3 velocity = Vector3.zero;
 
@@ -25,6 +25,11 @@ public class Movement : MonoBehaviour
 	protected virtual void Update()
 	{
 		DoAction();
+	}
+
+	public void Init(Transform arena)
+	{
+		this.arena = arena;
 	}
 	#endregion
 

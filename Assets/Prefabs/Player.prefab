@@ -105,6 +105,7 @@ MonoBehaviour:
   speed: 3
   horizontalInput: 0
   verticalInput: 0
+  playerIndex: 0
 --- !u!114 &2043401355572131618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81a012351e35754b9a85163957c5c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  push: 0
 --- !u!58 &8750478511880906926
 CircleCollider2D:
   m_ObjectHideFlags: 0
