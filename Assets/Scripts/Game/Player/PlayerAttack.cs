@@ -41,9 +41,6 @@ public class PlayerAttack : MonoBehaviour
 
 			animator.SetBool("AttackLeft", true);
 		}
-
-		//animator.SetBool("AttackRight", false);
-		//animator.SetBool("AttackLeft", false);
 	}
 
 	private Vortex CreateVortex()
