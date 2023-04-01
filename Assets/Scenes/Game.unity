@@ -161,7 +161,7 @@ MonoBehaviour:
   gameContainer: {fileID: 1232700301}
   titlecard: {fileID: 873660964}
   scienceScreen: {fileID: 2673017599299348761}
-  pauseScreen: {fileID: 0}
+  pauseScreen: {fileID: 527952722}
   vortex: {fileID: 3839633439406639158, guid: 037c9376818c0be439d83326dfb4672a, type: 3}
 --- !u!4 &247351014
 Transform:
@@ -528,6 +528,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2910466290092626736, guid: 225e8b4120d44f04d9f0fd8acae5c7b2, type: 3}
   m_PrefabInstance: {fileID: 527952720}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &527952722 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7557212310603718272, guid: 225e8b4120d44f04d9f0fd8acae5c7b2, type: 3}
+  m_PrefabInstance: {fileID: 527952720}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133da62aa2a87fd48980e6dd953b35a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &648589795
 PrefabInstance:
   m_ObjectHideFlags: 0
