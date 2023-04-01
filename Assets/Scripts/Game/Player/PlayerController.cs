@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public delegate void PlayerControllerEventHandler(PlayerController sender);
+
 [DisallowMultipleComponent]
 public class PlayerController : MonoBehaviour
 {
@@ -8,7 +10,9 @@ public class PlayerController : MonoBehaviour
 
 	private PlayerMovement playerMovement = default;
 
-    private void Awake()
+	public static event PlayerControllerEventHandler OnPauseGame;
+
+	private void Awake()
     {
 		PlayerMovement[] players = FindObjectsOfType<PlayerMovement>(true);
 		int index = playerInput.playerIndex;
@@ -39,5 +43,10 @@ public class PlayerController : MonoBehaviour
     {
 		if (playerMovement != null)
 			playerMovement.gameObject.GetComponentInChildren<PlayerPush>().Push();
+    }
+
+	public void OnPause(InputAction.CallbackContext ctx)
+    {
+		OnPauseGame?.Invoke(this);
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,7 +32,7 @@ public class Titlecard : BaseScreen
             validate2 = true;
             imageValidatePlayer2.color = Color.green;
 
-            playButton.Select();
+            StartCoroutine(WaitSelect());
         }
     }
 
@@ -42,5 +43,12 @@ public class Titlecard : BaseScreen
             gameObject.SetActive(false);
             Onplay?.Invoke(this);
         }
+    }
+
+    private IEnumerator WaitSelect()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        playButton.Select();
     }
 }
