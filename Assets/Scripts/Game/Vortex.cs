@@ -23,7 +23,10 @@ public class Vortex : Movement
     [SerializeField] private float shakeStrength = 0.15f;
     [SerializeField] private int shakeVibrato = 10;
 
+    private Tween tweenDivideShake = default;
+
     private float elapsedTime = default;
+    private float elapsedTimeShake = default;
 
     private int shakeLevel = 0;
 
@@ -50,6 +53,7 @@ public class Vortex : Movement
 
             if (charge > 1)
             {
+                animator.SetBool("VortexPlus", false);
                 animator.SetBool("VortexPlus2",true);
             }
         }
@@ -59,6 +63,7 @@ public class Vortex : Movement
 
             if (charge < -1)
             {
+                animator.SetBool("VortexMoins1", false);
                 animator.SetBool("VortexMoins2",true);
             }
         }
@@ -91,12 +96,24 @@ public class Vortex : Movement
         base.Update();
 
         elapsedTime += Time.deltaTime;
-        int absCharge = Mathf.Abs(charge);
+        elapsedTimeShake += Time.deltaTime;
 
-        if (absCharge > 1 && shakeLevel != Mathf.Floor(elapsedTime))
+        int absCharge = Mathf.Abs(charge);
+        float delayIncrease = 0.2f;
+
+        if (absCharge > 1 && elapsedTimeShake >= delayIncrease)
         {
+            if (tweenDivideShake != null)
+                tweenDivideShake.Kill();
+
+            int vibrato = shakeLevel * shakeVibrato;
+
+            Debug.Log("vibrato " + vibrato);
+
             shakeLevel++;
-            transform.DOShakePosition(1, shakeStrength, shakeLevel * shakeVibrato);
+            tweenDivideShake = transform.DOShakePosition(1, shakeStrength, vibrato);
+
+            elapsedTimeShake = 0F;
         }
 
         if (elapsedTime >= timeToDivide && absCharge > numberChargeToDivide)
