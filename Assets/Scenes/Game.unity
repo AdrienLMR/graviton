@@ -178,6 +178,7 @@ MonoBehaviour:
   titlecard: {fileID: 1352942594}
   scienceScreen: {fileID: 288807480}
   pauseScreen: {fileID: 203806015}
+  winScreen: {fileID: 8413439167824175305}
   vortex: {fileID: 3839633439406639158, guid: 037c9376818c0be439d83326dfb4672a, type: 3}
 --- !u!4 &247351014
 Transform:
@@ -756,7 +757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1232700302
 Transform:
   m_ObjectHideFlags: 0
@@ -987,6 +988,7 @@ RectTransform:
   - {fileID: 1352942593}
   - {fileID: 288807479}
   - {fileID: 203806014}
+  - {fileID: 8413439167824175304}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1138,3 +1140,120 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02d8399b76c29894d923f14d8211994a, type: 3}
+--- !u!1001 &8413439167824175303
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1802739703}
+    m_Modifications:
+    - target: {fileID: 3614269636309932285, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_Name
+      value: WinScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614269636309932285, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+--- !u!224 &8413439167824175304 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5670275765323935836, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+  m_PrefabInstance: {fileID: 8413439167824175303}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8413439167824175305 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 555094744802948672, guid: 1fc1ed805561c3a46aef0db078327264, type: 3}
+  m_PrefabInstance: {fileID: 8413439167824175303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0680468c7a7f9498faaf292246191c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

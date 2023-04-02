@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private Titlecard titlecard = default;
     [SerializeField] private ScienceScreen scienceScreen = default;
     [SerializeField] private PauseScreen pauseScreen = default;
+    [SerializeField] private WinScreen winScreen = default;
 
     [SerializeField] private Vortex vortex;
 
@@ -30,20 +31,19 @@ public class GameManager : MonoBehaviour
         titlecard.Onplay += Titlecard_Onplay;
         scienceScreen.OnClick += ScienceScreen_OnClick;
         pauseScreen.OnClick += PauseScreen_OnClick;
+        winScreen.OnClick += WinScreen_OnClick;
 	}
+
+    
     #endregion
 
     #region Events
     private void PlayerMovement_OnCollisionVortex(PlayerMovement sender)
 	{
-		//Gameover plut�t
-		if (loadScene)
-		{
-			Debug.Log("StopMusic");
-			//musicSystem.StopMusic();
-			SceneManager.LoadScene(0);
-			loadScene = false;
-		}
+		gameContainer.SetActive(false);
+		winScreen.gameObject.SetActive(true);
+
+		winScreen.Init(sender.playerIndex == 1 ? 1 : 2);
 	}
 
 	private void Vortex_OncollisionVortex(Vortex sender, Vortex receiver)
@@ -118,6 +118,18 @@ public class GameManager : MonoBehaviour
 	{
 		gameContainer.SetActive(true);
 		Time.timeScale = 1;
+	}
+
+	private void WinScreen_OnClick(BaseScreen sender)
+	{
+		//Gameover plut�t
+		if (loadScene)
+		{
+			Debug.Log("StopMusic");
+			//musicSystem.StopMusic();
+			SceneManager.LoadScene(0);
+			loadScene = false;
+		}
 	}
 	#endregion
 
