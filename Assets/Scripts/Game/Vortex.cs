@@ -78,7 +78,7 @@ public class Vortex : Movement
         }
         else if (_object.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerMovement>().SetModeDie();
+            collision.GetComponent<PlayerMovement>().SetModeDie(transform.position);
         }
     }
 
