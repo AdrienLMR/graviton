@@ -19,9 +19,6 @@ public class PlayerAttack : MonoBehaviour
 	{
 		elapsedTime += Time.deltaTime;
 
-		
-
-
 		if (inputAddVortex > 0 && elapsedTime >= coolDown && !inputPressed)
 		{
 			FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_vortex_positive");
