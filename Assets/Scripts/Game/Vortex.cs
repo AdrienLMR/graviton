@@ -25,8 +25,6 @@ public class Vortex : Movement
     {
         arena = GameObject.Find("Arena").transform;
 
-        spriteRender = GetComponent<SpriteRenderer>();
-
         if (charge == 0)
         {
             //lancement du son d'explosion
@@ -38,17 +36,13 @@ public class Vortex : Movement
 
         if (charge > 0)
         {
-            spriteRender.color = colorPositive; 
         }
         else if (charge < 0)
         {
-            spriteRender.color = colorNegative;
         }
 
         float absoluteCharge = Mathf.Abs(charge);
         transform.localScale = Vector3.one * absoluteCharge;
-
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
