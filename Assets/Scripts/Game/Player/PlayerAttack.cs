@@ -27,7 +27,7 @@ public class PlayerAttack : MonoBehaviour
 
 			Vortex _vortex = CreateVortex();
 			_vortex.charge = 1;
-			_vortex.SetModePushed(transform.up * forcePushVortex);
+			//_vortex.SetModePushed(transform.up * forcePushVortex);
 
 			animator.SetBool("AttackRight", true);
 		}
@@ -39,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
 
 			Vortex _vortex = CreateVortex();
 			_vortex.charge = -1;
-			_vortex.SetModePushed(transform.up * forcePushVortex);
+			//_vortex.SetModePushed(transform.up * forcePushVortex);
 
 			animator.SetBool("AttackLeft", true);
 		}

@@ -91,7 +91,21 @@ public class GameManager : MonoBehaviour
 				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_vortex_reduce");
 			}
 
-			Instantiate(vortex, middle, sender.transform.rotation, gameContainer.transform).charge = charge;
+			Vortex _vortex = Instantiate(vortex, middle, sender.transform.rotation, gameContainer.transform).GetComponent<Vortex>();
+			_vortex.charge = charge;
+
+			if (charge > 0 && maxCharge < absCharge)
+			{
+				Debug.Log("FusionPlus");
+
+				_vortex.animator.SetBool("FusionPlus", true);
+			}
+			else if (charge < 0 && maxCharge < absCharge)
+			{
+				Debug.Log("FusionMoins");
+
+				_vortex.animator.SetBool("FusionMoins", true);
+			}
 		}
 	}
 

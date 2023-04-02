@@ -16,6 +16,8 @@ public class Vortex : Movement
     [SerializeField] private float numberChargeToDivide = 1f;
     [SerializeField] private float radius = 3f;
     [SerializeField] private float ratio = 0.25f;
+    [SerializeField] public Animator animator;
+    
 
     [Header("Shake")]
     [SerializeField] private float shakeStrength = 0.15f;
@@ -28,6 +30,7 @@ public class Vortex : Movement
     protected void Start()
     {
         arena = GameObject.Find("Arena").transform;
+        animator = GetComponentInChildren<Animator>();
 
         if (charge == 0)
         {
@@ -38,7 +41,31 @@ public class Vortex : Movement
             return;
         }
 
-        transform.localScale = Vector3.one * Mathf.Abs(charge);
+ 
+
+
+        if (charge > 0)
+        {
+            animator.SetBool("VortexPlus", true);
+
+            if (charge > 1)
+            {
+                animator.SetBool("VortexPlus2",true);
+            }
+        }
+        else if (charge < 0)
+        {
+            animator.SetBool("VortexMoins1",true);
+
+            if (charge < -1)
+            {
+                animator.SetBool("VortexMoins2",true);
+            }
+        }
+
+
+        float absoluteCharge = Mathf.Abs(charge);
+        transform.localScale = Vector3.one * absoluteCharge;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -76,6 +103,8 @@ public class Vortex : Movement
         if (elapsedTime >= timeToDivide && absCharge > numberChargeToDivide)
         {
             elapsedTime = 0f;
+
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_split");
 
             for (int i = 0; i < absCharge; i++)
             {
