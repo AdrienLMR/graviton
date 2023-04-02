@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +7,8 @@ public class PlayerPush : MonoBehaviour
     private const string PlayerTag = "Player";
     private const string VortexTag = "Vortex";
 
+    [SerializeField] private Animator animator = default;
     [SerializeField] private SpriteRenderer collisionSprite = default;
-
-    [SerializeField] private Color unTriggeredColor = default;
-    [SerializeField] private Color triggeredColor = default;
 
     [SerializeField] private float pushForce = 0f;
 
@@ -39,10 +36,8 @@ public class PlayerPush : MonoBehaviour
 
     public void Push()
     {
-        collisionSprite.color = Color.white;
-
-        StartCoroutine(WaitEndPush());
-
+        animator.SetTrigger("isPush");
+        Debug.Log("a");
         Vector2 velocity;
         FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_punch_a1", GetComponent<Transform>().position);
         for (int i = 0; i < collisions.Count; i++)
@@ -51,12 +46,5 @@ public class PlayerPush : MonoBehaviour
 
             collisions[i].gameObject.GetComponent<Movement>().SetModePushed(velocity);
         }
-    }
-
-    private IEnumerator WaitEndPush()
-    {
-        yield return new WaitForSeconds(0.2f);
-
-        collisionSprite.color = new Color(0, 0, 0, 0);
     }
 }

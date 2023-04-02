@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1100401627441687651}
   - component: {fileID: 6703112362241126546}
+  - component: {fileID: 1824232329661224712}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -73,17 +74,38 @@ SpriteRenderer:
   m_SortingLayerID: 1550464525
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 17836615b8e6d5b478314eb32d2d1603, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1824232329661224712
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589560811735430323}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d198f48cf7b3b444a2a9af4b8170f4b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3181795465824559104
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vortex: {fileID: 3839633439406640075, guid: 037c9376818c0be439d83326dfb4672a, type: 3}
-  forcePushVortex: 0.1
   distanceToSpawn: 1.25
   coolDown: 0.2
   animator: {fileID: 6427051758547506378}
@@ -416,9 +437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659e8a3a6f56c1144a2b4da7d183d63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1824232329661224712}
   collisionSprite: {fileID: 6703112362241126546}
-  unTriggeredColor: {r: 0, g: 0, b: 0, a: 0}
-  triggeredColor: {r: 1, g: 1, b: 1, a: 1}
   pushForce: 0.03
 --- !u!1001 &5818469686038705082
 PrefabInstance:

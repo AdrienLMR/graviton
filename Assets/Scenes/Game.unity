@@ -576,7 +576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2466642404937465345, guid: 2d4c91e2ca0e4484e90414f840d07268, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6072306347088141935, guid: 2d4c91e2ca0e4484e90414f840d07268, type: 3}
       propertyPath: musicSystem
@@ -731,6 +731,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: aa8e4c603701bb94dbcf0b79349b0390, type: 2}
+    - target: {fileID: 6703112362241126546, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7156182025262458500, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
       propertyPath: playerIndex
       value: 1
@@ -955,7 +959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1232700302
 Transform:
   m_ObjectHideFlags: 0
