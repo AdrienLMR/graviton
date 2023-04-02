@@ -16,6 +16,7 @@ public class Vortex : Movement
     [SerializeField] private float timeToDivide = 5f;
     [SerializeField] private float numberChargeToDivide = 1f;
     [SerializeField] private float radius = 3f;
+    [SerializeField] private float ratio = 0.25f;
 
     private SpriteRenderer spriteRender = default;
     private float elapsedTime = default;    
@@ -87,7 +88,14 @@ public class Vortex : Movement
 
             for (int i = 0; i < absCharge; i++)
             {
-                //if (i)
+                float resultModulo = absCharge % 4;
+                int numberOfAugmentation = Mathf.FloorToInt(absCharge / 4);
+
+                if (numberOfAugmentation >=1 && i == 0)
+                {
+                    float _ratio = numberOfAugmentation * ratio;
+                    radius = radius * _ratio;
+                }
 
                 float angle = Mathf.PI * 2 * i / absCharge;
                 Vector3 position = new Vector3(Mathf.Cos(angle) * radius + transform.position.x, 
