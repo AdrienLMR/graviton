@@ -97,9 +97,9 @@ MonoBehaviour:
   numberChargeToDivide: 1
   radius: 2
   ratio: 1
+  animator: {fileID: 4455009467891387498}
   shakeStrength: 0.15
   shakeVibrato: 10
-  animator: {fileID: 4455009467891387498}
 --- !u!1 &7021219464597511638
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 8872562308769739403}
   - component: {fileID: 6278108602588983197}
   - component: {fileID: 4455009467891387498}
-  - component: {fileID: 8124760034975973153}
+  - component: {fileID: 1655349604476646282}
   m_Layer: 0
   m_Name: Asset
   m_TagString: Untagged
@@ -205,9 +205,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1655349604476646282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7021219464597511638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a1b2e7bf1929244897367053e76bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4455009467891387498}
 --- !u!1001 &3865499192822214704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,15 +290,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7934559348279528372, guid: 6b5e61077a6f7bf4196751e89e5be31b, type: 3}
   m_PrefabInstance: {fileID: 3865499192822214704}
   m_PrefabAsset: {fileID: 0}
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7021219464597511638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8a1b2e7bf1929244897367053e76bf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 4455009467891387498}--- !u!114 &8124760034975973153
