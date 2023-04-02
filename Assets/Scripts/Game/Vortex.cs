@@ -1,6 +1,4 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public delegate void OnCollisionVortex(Vortex sender, Vortex receiver);
@@ -22,7 +20,6 @@ public class Vortex : Movement
     [Header("Shake")]
     [SerializeField] private float shakeStrength = 0.15f;
     [SerializeField] private int shakeVibrato = 10;
-
 
     private float elapsedTime = default;
 

@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+public delegate void ExplosionEventHandler(Explosion sender);
 
 public class Explosion : MonoBehaviour
 {
@@ -9,6 +9,13 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float stayOnStage = 0.2f;
 
     private float elapsedTime = default;
+
+    public static event ExplosionEventHandler OnExplode;
+
+    private void Start()
+    {
+        OnExplode?.Invoke(this);
+    }
 
     private void Update()
     {

@@ -174,12 +174,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186fddb92d673184cbbcf08cef0140d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCamera: {fileID: 519420032}
   gameContainer: {fileID: 1232700301}
   titlecard: {fileID: 1352942594}
   scienceScreen: {fileID: 288807480}
   pauseScreen: {fileID: 203806015}
   winScreen: {fileID: 8413439167824175305}
   vortex: {fileID: 3839633439406639158, guid: 037c9376818c0be439d83326dfb4672a, type: 3}
+  screenShakeTime: 0.5
+  screenShakeStrength: 0.5
+  screenShakeVibrato: 10
 --- !u!4 &247351014
 Transform:
   m_ObjectHideFlags: 0

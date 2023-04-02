@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager Instance { get; private set; } = default;
 
 	[Header("Objects")]
+	[SerializeField] private Transform currentCamera = default;
 	[SerializeField] private GameObject gameContainer = default;
 	[SerializeField] private Titlecard titlecard = default;
     [SerializeField] private ScienceScreen scienceScreen = default;
@@ -15,6 +17,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private WinScreen winScreen = default;
 
     [SerializeField] private Vortex vortex;
+
+	[Header("Values")]
+	[SerializeField] private float screenShakeTime = 0.5f;
+	[SerializeField] private float screenShakeStrength = 0.5f;
+	[SerializeField] private int screenShakeVibrato = 10;
 
 	private bool createVortex = false;
 	private bool loadScene = true;
@@ -27,14 +34,13 @@ public class GameManager : MonoBehaviour
         Vortex.OncollisionVortex += Vortex_OncollisionVortex;
         PlayerMovement.OnCollisionVortex += PlayerMovement_OnCollisionVortex;
         PlayerController.OnPauseGame += PlayerController_OnPauseGame;
+        Explosion.OnExplode += Explosion_OnExplode;
 
         titlecard.Onplay += Titlecard_Onplay;
         scienceScreen.OnClick += ScienceScreen_OnClick;
         pauseScreen.OnClick += PauseScreen_OnClick;
         winScreen.OnClick += WinScreen_OnClick;
 	}
-
-    
     #endregion
 
     #region Events
@@ -87,6 +93,11 @@ public class GameManager : MonoBehaviour
 
 			Instantiate(vortex, middle, sender.transform.rotation, gameContainer.transform).charge = charge;
 		}
+	}
+
+	private void Explosion_OnExplode(Explosion sender)
+	{
+		currentCamera.DOShakePosition(screenShakeTime, screenShakeStrength, screenShakeVibrato);
 	}
 
 	private void Titlecard_Onplay(BaseScreen sender)
