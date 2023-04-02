@@ -13,13 +13,16 @@ public class Vortex : Movement
     [SerializeField] private Explosion explosion;
     [SerializeField] private Color colorPositive;
     [SerializeField] private Color colorNegative;
+    [SerializeField] private float timeToDivide = 5f;
+    [SerializeField] private float numberChargeToDivide = 1f;
+    [SerializeField] private float radius = 3f;
+    [SerializeField] private float ratio = 0.25f;
 
     private SpriteRenderer spriteRender = default;
+    private float elapsedTime = default;    
 
-    override protected void Start()
+    protected void Start()
     {
-        base.Start();
-
         arena = GameObject.Find("Arena").transform;
 
         spriteRender = GetComponent<SpriteRenderer>();
@@ -67,8 +70,42 @@ public class Vortex : Movement
         }
     }
 
-    protected override void DoActionMove()
+    
+    //PAS A SUPPRIMER
+    protected override void DoActionMove(){}
+
+    protected override void Update()
     {
-        
+        base.Update();
+
+        elapsedTime += Time.deltaTime;
+        int absCharge = Mathf.Abs(charge);
+
+
+        if(elapsedTime >= timeToDivide && absCharge > numberChargeToDivide)
+        {
+            elapsedTime = 0f;
+
+            for (int i = 0; i < absCharge; i++)
+            {
+                float resultModulo = absCharge % 4;
+                int numberOfAugmentation = Mathf.FloorToInt(absCharge / 4);
+
+                if (numberOfAugmentation >=1 && i == 0)
+                {
+                    float _ratio = numberOfAugmentation * ratio;
+                    radius = radius * _ratio;
+                }
+
+                float angle = Mathf.PI * 2 * i / absCharge;
+                Vector3 position = new Vector3(Mathf.Cos(angle) * radius + transform.position.x, 
+                    Mathf.Sin(angle) * radius + transform.position.y);
+
+                Vortex _vortex = Instantiate(gameObject, position, Quaternion.identity,transform.parent).GetComponent<Vortex>();
+                _vortex.charge = charge / Mathf.Abs(charge);
+            }
+
+            Destroy(gameObject);
+        }
     }
 }

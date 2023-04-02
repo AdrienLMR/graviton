@@ -5,6 +5,7 @@ public class PlayerAttack : MonoBehaviour
 {
 	[SerializeField] private GameObject vortex = default;
 
+	[SerializeField] private float forcePushVortex = 0f;
 	[SerializeField] private float distanceToSpawn = 4f;
 	[SerializeField] private float coolDown = 0f;
 	[SerializeField] private Animator animator;
@@ -12,11 +13,16 @@ public class PlayerAttack : MonoBehaviour
 	private float elapsedTime = default;
 	public float inputAddVortex { private get; set; }
 
+	private bool inputPressed = false;
+
 	private void Update()
 	{
 		elapsedTime += Time.deltaTime;
 
-		if (inputAddVortex > 0 && elapsedTime >= coolDown)
+		
+
+
+		if (inputAddVortex > 0 && elapsedTime >= coolDown && !inputPressed)
 		{
 			FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_vortex_positive");
 
@@ -24,10 +30,11 @@ public class PlayerAttack : MonoBehaviour
 
 			Vortex _vortex = CreateVortex();
 			_vortex.charge = 1;
+			_vortex.SetModePushed(transform.up * forcePushVortex);
 
 			animator.SetBool("AttackRight", true);
 		}
-		else if (inputAddVortex < 0 && elapsedTime >= coolDown)
+		else if (inputAddVortex < 0 && elapsedTime >= coolDown && !inputPressed)
 		{
 			FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_vortex_negative");
 
@@ -35,12 +42,19 @@ public class PlayerAttack : MonoBehaviour
 
 			Vortex _vortex = CreateVortex();
 			_vortex.charge = -1;
+			_vortex.SetModePushed(transform.up * forcePushVortex);
 
 			animator.SetBool("AttackLeft", true);
 		}
 
-		//animator.SetBool("AttackRight", false);
-		//animator.SetBool("AttackLeft", false);
+		if (inputAddVortex == 0)
+		{
+			inputPressed = false;
+		}else
+        {
+			inputPressed = true;
+
+		}
 	}
 
 	private Vortex CreateVortex()

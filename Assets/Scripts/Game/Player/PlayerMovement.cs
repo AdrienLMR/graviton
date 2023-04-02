@@ -18,7 +18,7 @@ public class PlayerMovement : Movement
     [SerializeField] private Animator animator;
 
     #region Unity Methods
-    protected override void Start()
+    protected void Start()
     {
         SetModeMove();
     }
@@ -56,8 +56,6 @@ public class PlayerMovement : Movement
 
     }
     #endregion
-
-    private Vector2 test = Vector2.zero;
 
     protected override void UpdatePosition()
     {
