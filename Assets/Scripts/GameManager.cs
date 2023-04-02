@@ -48,8 +48,6 @@ public class GameManager : MonoBehaviour
 
 	private void Vortex_OncollisionVortex(Vortex sender, Vortex receiver)
 	{
-		Debug.Log(createVortex);
-
 		createVortex = !createVortex;
 
 		if (createVortex)
@@ -81,19 +79,13 @@ public class GameManager : MonoBehaviour
 			if (absCharge > maxCharge && charge != 0)
 			{
 				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_vortex_augment");
-				Debug.Log("augment");
 			}
 			else if (absCharge <= maxCharge && charge != 0)
 			{
 				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_vortex_reduce");
-				Debug.Log("reduce");
 			}
 
 			Instantiate(vortex, middle, sender.transform.rotation, gameContainer.transform).charge = charge;
-
-
-
-
 		}
 	}
 
