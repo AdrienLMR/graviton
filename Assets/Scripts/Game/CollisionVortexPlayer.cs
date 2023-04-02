@@ -11,7 +11,7 @@ public class CollisionVortexPlayer : MonoBehaviour
         if (collision.CompareTag(_tag))
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_death_a1");
-            collision.GetComponent<PlayerMovement>().SetModeDie();
+            //collision.GetComponent<PlayerMovement>().SetModeDie();
         }
     }
 }
