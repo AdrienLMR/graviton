@@ -33,7 +33,7 @@ public class Explosion : MonoBehaviour
         {
             Vector3 velocity = objectCollide.transform.position - transform.position;
             objectCollide.GetComponent<PlayerMovement>().SetModePushed(velocity.normalized * speed * Time.deltaTime);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }
