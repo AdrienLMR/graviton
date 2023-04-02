@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{4f6377d0-7bf7-4274-8c3a-d5b1b98728f6}">
+		<property name="assetPath">
+			<value>sound_sfx_split.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.0485208333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0cdb42b5-f80e-4e05-bbb0-cba7eafdf68a}</destination>
+		</relationship>
+	</object>
+</objects>
