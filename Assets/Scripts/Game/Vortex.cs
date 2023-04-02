@@ -80,6 +80,8 @@ public class Vortex : Movement
         {
             elapsedTime = 0f;
 
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_split");
+
             for (int i = 0; i < absCharge; i++)
             {
                 float resultModulo = absCharge % 4;

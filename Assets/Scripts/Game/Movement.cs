@@ -43,6 +43,8 @@ public class Movement : MonoBehaviour
 
 	public void SetModePushed(Vector3 velocity)
     {
+		//pushed sound
+		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_ispushed");
 		this.velocity = velocity;
 		DoAction = DoActionPushed;
 	}

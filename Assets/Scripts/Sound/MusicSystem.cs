@@ -22,10 +22,11 @@ public class MusicSystem : MonoBehaviour
     public void PlayMusic()
     {
         musicMain = FMODUnity.RuntimeManager.CreateInstance("event:/MUSIC/sound_music_main");
-        
         if (!IsPlaying(musicMain))
             musicMain.start();
     }
+
+
 
     public void StopMusic()
     {
