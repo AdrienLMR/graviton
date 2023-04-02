@@ -44,9 +44,6 @@ public class Vortex : Movement
             return;
         }
 
- 
-
-
         if (charge > 0)
         {
             animator.SetBool("VortexPlus", true);
@@ -108,10 +105,8 @@ public class Vortex : Movement
 
             int vibrato = shakeLevel * shakeVibrato;
 
-            Debug.Log("vibrato " + vibrato);
-
             shakeLevel++;
-            tweenDivideShake = transform.DOShakePosition(1, shakeStrength, vibrato);
+            //tweenDivideShake = transform.DOShakePosition(1, shakeStrength, vibrato);
 
             elapsedTimeShake = 0F;
         }

@@ -62,10 +62,10 @@ public class Movement : MonoBehaviour
     {
 		velocity *= friction;
 
-		if (CheckExceedLimitMap(transform.position - arena.position))
-			SlideAgainstWall(transform.position - arena.position);
+        if (CheckExceedLimitMap(transform.position - arena.position))
+            SlideAgainstWall(transform.position - arena.position);
 
-		UpdatePosition();
+        UpdatePosition();
 
 		if (velocity.magnitude <= 0.01f)
 		{
