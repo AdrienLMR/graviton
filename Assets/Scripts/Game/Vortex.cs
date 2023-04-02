@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public delegate void OnCollisionVortex(Vortex sender, Vortex receiver);
@@ -18,9 +17,15 @@ public class Vortex : Movement
     [SerializeField] private float radius = 3f;
     [SerializeField] private float ratio = 0.25f;
     [SerializeField] public Animator animator;
+    
 
-    private SpriteRenderer spriteRender = default;
+    [Header("Shake")]
+    [SerializeField] private float shakeStrength = 0.15f;
+    [SerializeField] private int shakeVibrato = 10;
+
     private float elapsedTime = default;
+
+    private int shakeLevel = 0;
 
     protected void Start()
     {
@@ -35,6 +40,8 @@ public class Vortex : Movement
             Destroy(gameObject);
             return;
         }
+
+ 
 
 
         if (charge > 0)
@@ -56,10 +63,6 @@ public class Vortex : Movement
             }
         }
 
-        Debug.Log("VortexPlus Bool " + animator.GetBool("VortexPlus"));
-        Debug.Log("VortexPlus Bool 2" + animator.GetBool("VortexPlus2"));
-
-        Debug.Log("FusionPlus " + animator.GetBool("FusionPlus"));
 
         float absoluteCharge = Mathf.Abs(charge);
         transform.localScale = Vector3.one * absoluteCharge;
@@ -71,8 +74,6 @@ public class Vortex : Movement
 
         if (_object.CompareTag(tagCollision))
         {
-            Debug.Log(_object.gameObject);
-
             Vortex vortexReceiver = _object.GetComponent<Vortex>();
             OncollisionVortex?.Invoke(this, vortexReceiver);
         }
@@ -93,6 +94,11 @@ public class Vortex : Movement
         elapsedTime += Time.deltaTime;
         int absCharge = Mathf.Abs(charge);
 
+        if (absCharge > 1 && shakeLevel != Mathf.Floor(elapsedTime))
+        {
+            shakeLevel++;
+            transform.DOShakePosition(1, shakeStrength, shakeLevel * shakeVibrato);
+        }
 
         if (elapsedTime >= timeToDivide && absCharge > numberChargeToDivide)
         {
@@ -100,18 +106,14 @@ public class Vortex : Movement
 
             for (int i = 0; i < absCharge; i++)
             {
-                float resultModulo = absCharge % 4;
                 int numberOfAugmentation = Mathf.FloorToInt(absCharge / 4);
 
                 if (numberOfAugmentation >= 1 && i == 0)
-                {
-                    float _ratio = numberOfAugmentation * ratio;
-                    radius = radius * _ratio;
-                }
+                    radius = radius * numberOfAugmentation * ratio;
 
                 float angle = Mathf.PI * 2 * i / absCharge;
-                Vector3 position = new Vector3(Mathf.Cos(angle) * radius + transform.position.x,
-                    Mathf.Sin(angle) * radius + transform.position.y);
+
+                Vector3 position = transform.position + radius * new Vector3(Mathf.Cos(angle), Mathf.Sin(angle));
 
                 Vortex _vortex = Instantiate(gameObject, position, Quaternion.identity, transform.parent).GetComponent<Vortex>();
                 _vortex.charge = charge / Mathf.Abs(charge);
