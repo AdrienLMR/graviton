@@ -95,11 +95,11 @@ MonoBehaviour:
   colorNegative: {r: 0, g: 0, b: 0, a: 1}
   timeToDivide: 10
   numberChargeToDivide: 1
-  radius: 2
-  ratio: 1
+  radius: 1
+  ratio: 1.75
   animator: {fileID: 4455009467891387498}
   shakeStrength: 0.15
-  shakeVibrato: 10
+  shakeVibrato: 5
 --- !u!1 &7021219464597511638
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +188,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &4455009467891387498
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -205,8 +205,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1655349604476646282
 MonoBehaviour:
   m_ObjectHideFlags: 0
