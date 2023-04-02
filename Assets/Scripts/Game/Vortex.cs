@@ -33,6 +33,8 @@ public class Vortex : Movement
     private int shakeLevel = 0;
 
     public bool doAnimDivision = false;
+    public bool doAnimSpawn = false;
+    public int factorReduce = 1;
 
     protected void Start()
     {
@@ -72,12 +74,22 @@ public class Vortex : Movement
         float absoluteCharge = Mathf.Abs(charge);
         transform.localScale = Vector3.one * absoluteCharge;
 
-        if (doAnimDivision)
+        if (doAnimDivision && !doAnimSpawn)
         {
             Vector3 lastScale = transform.localScale;
             transform.localScale = Vector3.zero;
 
-            transform.DOScale(lastScale, 0.4f);
+            transform.DOScale(lastScale, 0.55f);
+
+            Debug.Log("Lourd");
+        }else if (!doAnimDivision && doAnimSpawn)
+        {
+            Vector3 lastScale = transform.localScale;
+            Vector3 newScale = transform.localScale + Vector3.one * factorReduce;
+
+            transform.localScale = newScale;
+
+            transform.DOScale(lastScale, 0.55f);
         }
     }
 

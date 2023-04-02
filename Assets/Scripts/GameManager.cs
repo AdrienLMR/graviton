@@ -82,6 +82,9 @@ public class GameManager : MonoBehaviour
 				maxCharge = absChargerSender;
 			}
 
+			int factorIncrease = 1;
+			bool doAnimSpawn = false;
+
 			if (absCharge > maxCharge && charge != 0)
 			{
 				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_vortex_augment");
@@ -89,10 +92,14 @@ public class GameManager : MonoBehaviour
 			else if (absCharge <= maxCharge && charge != 0)
 			{
 				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_vortex_reduce");
+				doAnimSpawn = true;
+				factorIncrease = 1;
 			}
 
 			Vortex _vortex = Instantiate(vortex, middle, sender.transform.rotation, gameContainer.transform).GetComponent<Vortex>();
 			_vortex.charge = charge;
+			_vortex.doAnimSpawn = doAnimSpawn;
+			_vortex.factorReduce = factorIncrease;
 
 			if (charge > 0 && maxCharge < absCharge)
 			{
