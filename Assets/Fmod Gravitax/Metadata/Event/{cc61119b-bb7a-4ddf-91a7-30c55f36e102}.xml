@@ -95,11 +95,17 @@
 		<property name="length">
 			<value>2.0485208333333333</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{571e85df-e59c-43d0-b744-ab1b44b495b3}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{4f6377d0-7bf7-4274-8c3a-d5b1b98728f6}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{67a79d0c-de3f-4363-88bc-e69d2ffb84d6}">
+		<property name="volume">
+			<value>-5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -125,8 +131,17 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{5806f08d-118b-4c8d-b2fd-eb45a2fe96ec}" />
+	<object class="RandomizerModulator" id="{571e85df-e59c-43d0-b744-ab1b44b495b3}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>2</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{a98d330a-36f9-4c24-a223-bf749c17d5f2}">
 		<relationship name="effects">
+			<destination>{285d5284-a302-47df-961f-b810f2aa48be}</destination>
 			<destination>{8d3251a1-7d38-44ff-b6fc-555f6e02dee6}</destination>
 			<destination>{1c4ee31d-5cad-4004-81bf-daeb3ec53ed6}</destination>
 		</relationship>
@@ -136,6 +151,17 @@
 	<object class="SpatialiserEffect" id="{4ea2d764-1605-49d9-8c7c-bffe6bf391a4}">
 		<property name="distanceRolloffType">
 			<value>4</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{285d5284-a302-47df-961f-b810f2aa48be}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>5500</value>
+		</property>
+		<property name="gainA">
+			<value>-10.5</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{8d3251a1-7d38-44ff-b6fc-555f6e02dee6}" />

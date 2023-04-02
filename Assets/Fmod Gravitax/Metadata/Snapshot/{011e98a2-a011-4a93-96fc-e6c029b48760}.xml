@@ -41,7 +41,7 @@
 			<value>volume</value>
 		</property>
 		<property name="value">
-			<value>4.5</value>
+			<value>5</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{a773427d-9e4a-4bb9-9c41-1b6c222f41a6}</destination>
@@ -52,7 +52,7 @@
 			<value>frequencyA</value>
 		</property>
 		<property name="value">
-			<value>1024.91663</value>
+			<value>1488.18237</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{eb1297a3-0d69-4fac-8c4f-5c2ef45dee4c}</destination>
@@ -63,7 +63,7 @@
 			<value>frequencyB</value>
 		</property>
 		<property name="value">
-			<value>371.344147</value>
+			<value>705.863708</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{eb1297a3-0d69-4fac-8c4f-5c2ef45dee4c}</destination>
@@ -74,7 +74,7 @@
 			<value>qualityB</value>
 		</property>
 		<property name="value">
-			<value>0.455827594</value>
+			<value>0.840758622</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{eb1297a3-0d69-4fac-8c4f-5c2ef45dee4c}</destination>
@@ -96,7 +96,7 @@
 			<value>qualityA</value>
 		</property>
 		<property name="value">
-			<value>0.476758599</value>
+			<value>0.539551735</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{eb1297a3-0d69-4fac-8c4f-5c2ef45dee4c}</destination>
