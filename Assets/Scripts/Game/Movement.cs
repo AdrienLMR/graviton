@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 	[SerializeField] public Transform arena = default;
+	[SerializeField] private GameObject trailPush = default;
 
 	[Header("Movement Values")]
 	[SerializeField] protected float friction = 0.98f;
@@ -43,6 +44,7 @@ public class Movement : MonoBehaviour
 
 	public void SetModePushed(Vector3 velocity)
     {
+    	trailPush.SetActive(true);
 		//pushed sound
 		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_ispushed");
 		this.velocity = velocity;
@@ -67,6 +69,7 @@ public class Movement : MonoBehaviour
 
 		if (velocity.magnitude <= 0.01f)
 		{
+			trailPush.SetActive(false);
 			SetModeMove();
 		}
     }
