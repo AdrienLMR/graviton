@@ -32,6 +32,8 @@ public class Vortex : Movement
 
     private int shakeLevel = 0;
 
+    public bool doAnimDivision = false;
+
     protected void Start()
     {
         arena = GameObject.Find("Arena").transform;
@@ -69,6 +71,14 @@ public class Vortex : Movement
 
         float absoluteCharge = Mathf.Abs(charge);
         transform.localScale = Vector3.one * absoluteCharge;
+
+        if (doAnimDivision)
+        {
+            Vector3 lastScale = transform.localScale;
+            transform.localScale = Vector3.zero;
+
+            transform.DOScale(lastScale, 0.4f);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -148,6 +158,7 @@ public class Vortex : Movement
 
                 Vortex _vortex = Instantiate(gameObject, position, Quaternion.identity, transform.parent).GetComponent<Vortex>();
                 _vortex.charge = charge / Mathf.Abs(charge);
+                _vortex.doAnimDivision = true;
             }
 
             Destroy(gameObject);

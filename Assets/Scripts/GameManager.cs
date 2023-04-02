@@ -96,14 +96,10 @@ public class GameManager : MonoBehaviour
 
 			if (charge > 0 && maxCharge < absCharge)
 			{
-				Debug.Log("FusionPlus");
-
 				_vortex.animator.SetBool("FusionPlus", true);
 			}
 			else if (charge < 0 && maxCharge < absCharge)
 			{
-				Debug.Log("FusionMoins");
-
 				_vortex.animator.SetBool("FusionMoins", true);
 			}
 		}
