@@ -37,12 +37,12 @@ public class Movement : MonoBehaviour
 		DoAction = DoActionVoid;
 	}
 
-	public void SetModeMove()
+	virtual public void SetModeMove()
 	{
 		DoAction = DoActionMove;
 	}
 
-	public void SetModePushed(Vector3 velocity)
+	virtual public void SetModePushed(Vector3 velocity)
     {
     	trailPush.SetActive(true);
 		//pushed sound

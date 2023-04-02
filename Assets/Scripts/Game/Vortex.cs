@@ -23,6 +23,8 @@ public class Vortex : Movement
     [SerializeField] private float shakeStrength = 0.15f;
     [SerializeField] private int shakeVibrato = 10;
 
+    private bool stopShake = false;
+
     private Tween tweenDivideShake = default;
 
     private float elapsedTime = default;
@@ -88,6 +90,22 @@ public class Vortex : Movement
     //PAS A SUPPRIMER
     protected override void DoActionMove() { }
 
+    public override void SetModePushed(Vector3 velocity)
+    {
+        base.SetModePushed(velocity);
+        stopShake = true;
+        if (tweenDivideShake != null)
+            tweenDivideShake.Kill();
+
+    }
+
+    public override void SetModeMove()
+    {
+        base.SetModeMove();
+
+        stopShake = false;
+    }
+
     protected override void Update()
     {
         base.Update();
@@ -98,7 +116,7 @@ public class Vortex : Movement
         int absCharge = Mathf.Abs(charge);
         float delayIncrease = 0.2f;
 
-        if (absCharge > 1 && elapsedTimeShake >= delayIncrease)
+        if (absCharge > 1 && elapsedTimeShake >= delayIncrease && !stopShake)
         {
             if (tweenDivideShake != null)
                 tweenDivideShake.Kill();
@@ -106,7 +124,7 @@ public class Vortex : Movement
             int vibrato = shakeLevel * shakeVibrato;
 
             shakeLevel++;
-            //tweenDivideShake = transform.DOShakePosition(1, shakeStrength, vibrato);
+            tweenDivideShake = transform.DOShakePosition(1, shakeStrength, vibrato);
 
             elapsedTimeShake = 0F;
         }
