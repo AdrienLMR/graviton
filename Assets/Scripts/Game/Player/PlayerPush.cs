@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,6 +39,10 @@ public class PlayerPush : MonoBehaviour
 
     public void Push()
     {
+        collisionSprite.color = Color.white;
+
+        StartCoroutine(WaitEndPush());
+
         Vector2 velocity;
         FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_punch_a1", GetComponent<Transform>().position);
         for (int i = 0; i < collisions.Count; i++)
@@ -46,5 +51,12 @@ public class PlayerPush : MonoBehaviour
 
             collisions[i].gameObject.GetComponent<Movement>().SetModePushed(velocity);
         }
+    }
+
+    private IEnumerator WaitEndPush()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        collisionSprite.color = new Color(0, 0, 0, 0);
     }
 }
