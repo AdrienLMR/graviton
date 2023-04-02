@@ -63,7 +63,6 @@ public class Vortex : Movement
             }
         }
 
-
         float absoluteCharge = Mathf.Abs(charge);
         transform.localScale = Vector3.one * absoluteCharge;
     }
