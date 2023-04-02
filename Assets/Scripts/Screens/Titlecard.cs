@@ -17,7 +17,9 @@ public class Titlecard : BaseScreen
 
     private void Awake()
     {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("pauseParameter", 1);
         playButton.onClick.AddListener(Play);
+        
     }
 
     public void StartDevice()
@@ -43,6 +45,7 @@ public class Titlecard : BaseScreen
         if (validate1 && validate2)
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/sound_ui_start");
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("pauseParameter", 0);
             gameObject.SetActive(false);
             Onplay?.Invoke(this);
         }
