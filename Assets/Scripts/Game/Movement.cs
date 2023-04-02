@@ -37,12 +37,12 @@ public class Movement : MonoBehaviour
 		DoAction = DoActionVoid;
 	}
 
-	public void SetModeMove()
+	virtual public void SetModeMove()
 	{
 		DoAction = DoActionMove;
 	}
 
-	public void SetModePushed(Vector3 velocity)
+	virtual public void SetModePushed(Vector3 velocity)
     {
     	trailPush.SetActive(true);
 		//pushed sound
@@ -62,10 +62,10 @@ public class Movement : MonoBehaviour
     {
 		velocity *= friction;
 
-		if (CheckExceedLimitMap(transform.position - arena.position))
-			SlideAgainstWall(transform.position - arena.position);
+        if (CheckExceedLimitMap(transform.position - arena.position))
+            SlideAgainstWall(transform.position - arena.position);
 
-		UpdatePosition();
+        UpdatePosition();
 
 		if (velocity.magnitude <= 0.01f)
 		{
