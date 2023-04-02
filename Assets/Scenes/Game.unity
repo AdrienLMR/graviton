@@ -566,6 +566,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1767365383690777521, guid: 2d4c91e2ca0e4484e90414f840d07268, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2466642404937465345, guid: 2d4c91e2ca0e4484e90414f840d07268, type: 3}
       propertyPath: m_Name
       value: Titlecard
@@ -578,6 +582,10 @@ PrefabInstance:
       propertyPath: musicSystem
       value: 
       objectReference: {fileID: 519420035}
+    - target: {fileID: 7247741059853774370, guid: 2d4c91e2ca0e4484e90414f840d07268, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d4c91e2ca0e4484e90414f840d07268, type: 3}
 --- !u!1001 &648589795
