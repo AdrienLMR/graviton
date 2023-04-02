@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
 
 		if (inputAddVortex > 0 && elapsedTime >= coolDown && !inputPressed)
 		{
-			FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_vortex_positive");
+			FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_vortex_positive", GetComponent<Transform>().position);
 
 			elapsedTime = 0f;
 
@@ -33,7 +33,7 @@ public class PlayerAttack : MonoBehaviour
 		}
 		else if (inputAddVortex < 0 && elapsedTime >= coolDown && !inputPressed)
 		{
-			FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_vortex_negative");
+			FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_vortex_negative", GetComponent<Transform>().position);
 
 			elapsedTime = 0f;
 

@@ -10,7 +10,7 @@ public class CollisionVortexPlayer : MonoBehaviour
     {
         if (collision.CompareTag(_tag))
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_death_a1");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_death_a1", GetComponent<Transform>().position);
             //collision.GetComponent<PlayerMovement>().SetModeDie();
         }
     }

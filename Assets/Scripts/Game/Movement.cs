@@ -46,7 +46,7 @@ public class Movement : MonoBehaviour
     {
     	trailPush.SetActive(true);
 		//pushed sound
-		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_ispushed");
+		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sound_sfx_ispushed", GetComponent<Transform>().position);
 		this.velocity = velocity;
 		DoAction = DoActionPushed;
 	}
@@ -62,10 +62,10 @@ public class Movement : MonoBehaviour
     {
 		velocity *= friction;
 
-		if (CheckExceedLimitMap(transform.position - arena.position))
-			SlideAgainstWall(transform.position - arena.position);
+        if (CheckExceedLimitMap(transform.position - arena.position))
+            SlideAgainstWall(transform.position - arena.position);
 
-		UpdatePosition();
+        UpdatePosition();
 
 		if (velocity.magnitude <= 0.01f)
 		{

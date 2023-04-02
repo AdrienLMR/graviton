@@ -36,7 +36,7 @@
 			<value>volume</value>
 		</property>
 		<property name="value">
-			<value>-9.5</value>
+			<value>-5</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{a773427d-9e4a-4bb9-9c41-1b6c222f41a6}</destination>
@@ -47,7 +47,7 @@
 			<value>frequencyA</value>
 		</property>
 		<property name="value">
-			<value>160</value>
+			<value>560</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{eb1297a3-0d69-4fac-8c4f-5c2ef45dee4c}</destination>
