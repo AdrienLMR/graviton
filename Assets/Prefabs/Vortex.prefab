@@ -95,8 +95,8 @@ MonoBehaviour:
   colorNegative: {r: 0, g: 0, b: 0, a: 1}
   timeToDivide: 2
   numberChargeToDivide: 1
-  radius: 2
-  ratio: 1
+  radius: 1
+  ratio: 1.75
   animator: {fileID: 4455009467891387498}
   shakeStrength: 0.15
   shakeVibrato: 5
