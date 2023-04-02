@@ -188,7 +188,7 @@
                     "name": "",
                     "id": "b45c1a1e-7a40-4c7a-8c4e-c6af7bc8012b",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "Push",

@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
 
 	public void OnPush(InputAction.CallbackContext ctx)
     {
+		if (ctx.phase != InputActionPhase.Started)
+			return;
+
 		if (playerMovement != null)
 			playerMovement.gameObject.GetComponentInChildren<PlayerPush>().Push();
     }
