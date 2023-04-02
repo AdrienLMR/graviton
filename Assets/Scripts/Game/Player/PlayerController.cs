@@ -39,19 +39,30 @@ public class PlayerController : MonoBehaviour
 			playerMovement.rotateInput = ctx.ReadValue<Vector2>();
     }
 
-	public void OnAddVortex(InputAction.CallbackContext ctx)
+	public void OnAddVortex1(InputAction.CallbackContext ctx)
 	{
+        if (ctx.phase != InputActionPhase.Started)
+            return;
+
 		if (playerMovement != null)
-			playerMovement.gameObject.GetComponent<PlayerAttack>().inputAddVortex = ctx.ReadValue<float>();
+			playerMovement.gameObject.GetComponentInChildren<PlayerAttack>().AddVortex1();
     }
 
-	public void OnPush(InputAction.CallbackContext ctx)
-    {
+	public void OnAddVortex2(InputAction.CallbackContext ctx)
+	{
 		if (ctx.phase != InputActionPhase.Started)
 			return;
 
 		if (playerMovement != null)
-			playerMovement.gameObject.GetComponentInChildren<PlayerPush>().Push();
+			playerMovement.gameObject.GetComponentInChildren<PlayerAttack>().AddVortex2();
+	}
+
+	public void OnPush(InputAction.CallbackContext ctx)
+    {
+		
+
+		//if (playerMovement != null)
+		//	playerMovement.gameObject.GetComponentInChildren<PlayerAttack>().Push();
     }
 
 	public void OnPause(InputAction.CallbackContext ctx)

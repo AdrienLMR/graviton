@@ -116,7 +116,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3181795465824559111}
   - component: {fileID: 3181795465824559109}
-  - component: {fileID: 2168818091339528962}
   - component: {fileID: 7676583363826601604}
   - component: {fileID: 8793676854447143133}
   - component: {fileID: 843624376229470319}
@@ -165,22 +164,6 @@ MonoBehaviour:
   durationAnimDeath: 0.5
   speedRotation: 800
   playerIndex: 0
-  animator: {fileID: 6427051758547506378}
---- !u!114 &2168818091339528962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3181795465824559104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aa1f8ff369df44448a5d4684a8dff4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vortex: {fileID: 3839633439406640075, guid: 037c9376818c0be439d83326dfb4672a, type: 3}
-  distanceToSpawn: 1.25
-  coolDown: 0.2
   animator: {fileID: 6427051758547506378}
 --- !u!50 &7676583363826601604
 Rigidbody2D:
@@ -375,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1120422434528140025}
   - component: {fileID: 8745842452748881095}
-  - component: {fileID: 4301538770041907824}
+  - component: {fileID: 7997619008039258076}
   m_Layer: 0
   m_Name: ForwardCollider
   m_TagString: Untagged
@@ -425,7 +408,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4301538770041907824
+--- !u!114 &7997619008039258076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -434,12 +417,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5160057596700363694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 659e8a3a6f56c1144a2b4da7d183d63c, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aa1f8ff369df44448a5d4684a8dff4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1824232329661224712}
   collisionSprite: {fileID: 6703112362241126546}
-  pushForce: 0.03
+  pushForce: 0.1
+  animatorPush: {fileID: 1824232329661224712}
+  vortex: {fileID: 3839633439406640075, guid: 037c9376818c0be439d83326dfb4672a, type: 3}
+  distanceToSpawn: 1.25
+  coolDown: 0.2
+  animator: {fileID: 6427051758547506378}
 --- !u!1001 &5818469686038705082
 PrefabInstance:
   m_ObjectHideFlags: 0
