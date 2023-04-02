@@ -18,7 +18,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void FootstepSound()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_fsteps_a1");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_fsteps_a1", GetComponent<Transform>().position);
     }
 
 

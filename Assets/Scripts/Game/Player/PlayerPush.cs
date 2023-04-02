@@ -39,7 +39,7 @@ public class PlayerPush : MonoBehaviour
     public void Push()
     {
         Vector2 velocity;
-        FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_punch_a1");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/CHA/sound_cha_punch_a1", GetComponent<Transform>().position);
         for (int i = 0; i < collisions.Count; i++)
         {
             velocity = (collisions[i].transform.position - transform.parent.position).normalized * pushForce;
