@@ -23,12 +23,16 @@ public class Vortex : Movement
     [SerializeField] private float shakeStrength = 0.15f;
     [SerializeField] private int shakeVibrato = 10;
 
+    private bool stopShake = false;
+
     private Tween tweenDivideShake = default;
 
     private float elapsedTime = default;
     private float elapsedTimeShake = default;
 
     private int shakeLevel = 0;
+
+    public bool doAnimDivision = false;
 
     protected void Start()
     {
@@ -67,6 +71,14 @@ public class Vortex : Movement
 
         float absoluteCharge = Mathf.Abs(charge);
         transform.localScale = Vector3.one * absoluteCharge;
+
+        if (doAnimDivision)
+        {
+            Vector3 lastScale = transform.localScale;
+            transform.localScale = Vector3.zero;
+
+            transform.DOScale(lastScale, 0.4f);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -88,6 +100,22 @@ public class Vortex : Movement
     //PAS A SUPPRIMER
     protected override void DoActionMove() { }
 
+    public override void SetModePushed(Vector3 velocity)
+    {
+        base.SetModePushed(velocity);
+        stopShake = true;
+        if (tweenDivideShake != null)
+            tweenDivideShake.Kill();
+
+    }
+
+    public override void SetModeMove()
+    {
+        base.SetModeMove();
+
+        stopShake = false;
+    }
+
     protected override void Update()
     {
         base.Update();
@@ -98,7 +126,7 @@ public class Vortex : Movement
         int absCharge = Mathf.Abs(charge);
         float delayIncrease = 0.2f;
 
-        if (absCharge > 1 && elapsedTimeShake >= delayIncrease)
+        if (absCharge > 1 && elapsedTimeShake >= delayIncrease && !stopShake)
         {
             if (tweenDivideShake != null)
                 tweenDivideShake.Kill();
@@ -106,7 +134,7 @@ public class Vortex : Movement
             int vibrato = shakeLevel * shakeVibrato;
 
             shakeLevel++;
-            //tweenDivideShake = transform.DOShakePosition(1, shakeStrength, vibrato);
+            tweenDivideShake = transform.DOShakePosition(1, shakeStrength, vibrato);
 
             elapsedTimeShake = 0F;
         }
@@ -130,6 +158,7 @@ public class Vortex : Movement
 
                 Vortex _vortex = Instantiate(gameObject, position, Quaternion.identity, transform.parent).GetComponent<Vortex>();
                 _vortex.charge = charge / Mathf.Abs(charge);
+                _vortex.doAnimDivision = true;
             }
 
             Destroy(gameObject);
