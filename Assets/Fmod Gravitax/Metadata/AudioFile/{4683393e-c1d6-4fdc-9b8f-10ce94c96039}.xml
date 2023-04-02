@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{4683393e-c1d6-4fdc-9b8f-10ce94c96039}">
+		<property name="assetPath">
+			<value>sound_sfx_vortex_augment.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.4922083333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0cdb42b5-f80e-4e05-bbb0-cba7eafdf68a}</destination>
+		</relationship>
+	</object>
+</objects>

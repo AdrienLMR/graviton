@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{7a0b89fe-8bbd-4114-800a-6b5556f18ab8}">
+		<property name="assetPath">
+			<value>sound_cha_fsteps_a1-029.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.3166666666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0cdb42b5-f80e-4e05-bbb0-cba7eafdf68a}</destination>
+		</relationship>
+	</object>
+</objects>
