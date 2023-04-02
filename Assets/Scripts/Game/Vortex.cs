@@ -47,6 +47,8 @@ public class Vortex : Movement
 
         float absoluteCharge = Mathf.Abs(charge);
         transform.localScale = Vector3.one * absoluteCharge;
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,6 +58,9 @@ public class Vortex : Movement
         if (_object.CompareTag(tagCollision))
         {
             Debug.Log(_object.gameObject);
+
+            
+            
 
             Vortex vortexReceiver = _object.GetComponent<Vortex>();
             OncollisionVortex?.Invoke(this, vortexReceiver);
