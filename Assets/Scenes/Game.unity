@@ -620,6 +620,10 @@ PrefabInstance:
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2168818091339528962, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
+      propertyPath: distanceToSpawn
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168818091339528962, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
       propertyPath: forcePushVortex
       value: 0
       objectReference: {fileID: 0}
@@ -799,6 +803,10 @@ PrefabInstance:
     - target: {fileID: 2168818091339528962, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
       propertyPath: coolDown
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168818091339528962, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
+      propertyPath: distanceToSpawn
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 2168818091339528962, guid: 1f81876d6b0de354ebfa3c4601cfe9c5, type: 3}
       propertyPath: forcePushVortex
